@@ -8,7 +8,6 @@ import { ItemClass } from './../../item.model';
   styleUrls: ['./order-list.component.css']
 })
 export class OrderListComponent implements OnInit {
-  // selectedOrder: OrderListComponent;
 
   orders: OrderModel[] = [
 

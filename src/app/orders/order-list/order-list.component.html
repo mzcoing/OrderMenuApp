@@ -1,12 +1,13 @@
 <hr>
 <h2>Orders</h2>
+<div class="container">
 <div class="row">
   <div class="col-md-6">
       <ul>
         <li *ngFor="let order of orders"
         [class.selected]="order === selectedOrder"
         (click)="onSelect(order)">
-        <p> {{order.id}}.  {{order.name}}</p>
+        <span class="badge"> {{order.id}}. </span>  {{order.name}}
         </li>
       </ul>
     <button class="btn btn-success">Add New Order</button>
@@ -23,4 +24,4 @@
     </div>
   </div>
 </div>
-  
+</div>

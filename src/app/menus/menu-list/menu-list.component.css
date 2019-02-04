@@ -1,0 +1,5 @@
+.selected {
+    background-color: rgb(173, 192, 201) !important;
+    color: white;
+    font-weight:bold;
+  }
