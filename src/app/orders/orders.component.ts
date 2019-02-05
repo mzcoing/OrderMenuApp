@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderListComponent } from './order-list/order-list.component';
 
 @Component({
   selector: 'app-orders',

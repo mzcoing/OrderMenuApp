@@ -19,7 +19,7 @@ export class MenuListComponent implements OnInit {
     new MenuModel(5, 'Fifth Menu')
 
   ]
-  selectedMenu: MenuModel = new MenuModel (0, 'Choose a menu to see the');
+  selectedMenu: MenuModel = new MenuModel (0, 'Choose a menu to see the')
   
 
   constructor() { }

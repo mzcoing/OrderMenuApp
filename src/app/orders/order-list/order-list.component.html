@@ -1,27 +1,28 @@
 <hr>
 <h2>Orders</h2>
 <div class="container">
-<div class="row">
-  <div class="col-md-6">
+  <div class="row">
+    <div class="col-md-6">
       <ul>
-        <li *ngFor="let order of orders"
-        [class.selected]="order === selectedOrder"
-        (click)="onSelect(order)">
-        <span class="badge"> {{order.id}}. </span>  {{order.name}}
+        <li *ngFor="let order of orders">
+        
+        <a routerLink="/detail/{{order.id}}">
+          <span class="badge"> {{order.id}}. </span>  {{order.name}}
+          </a>
         </li>
       </ul>
-    <button class="btn btn-success">Add New Order</button>
-
-<div *ngIf="selectedOrder">
-
-      <h2>{{selectedOrder.name | uppercase}} Details</h2>
-      <div><span>id: </span>{{selectedOrder.id}}</div>
-<div>
-  <label>name:
-    <input [(ngModel)] = "selectedOrder.name" placeholder="name">
-  </label>
-</div>
+          <button class="btn btn-success">Add New Order</button>
+        <!-- <app-order-details [order]="selectedOrder"></app-order-details> -->
+      </div> 
     </div>
-  </div>
 </div>
-</div>
+
+      <!-- <div *ngIf="selectedOrder">
+        <h2>{{selectedOrder.name | uppercase}} Details</h2>
+          <div><span>id: </span>{{selectedOrder.id}}</div>
+        <div>
+          <label>name:
+            <input [(ngModel)] = "selectedOrder.name" placeholder="name">
+          </label>
+          </div>
+        </div>-->
