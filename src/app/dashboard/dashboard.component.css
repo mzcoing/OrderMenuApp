@@ -1,0 +1,23 @@
+.FOA {
+    color: #696969;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.FOA:hover{
+    opacity: 0.8;    
+}
+
+.navitems {
+    color: #696969;
+    font-weight: bolder;
+    font-size: 130%;
+}
+
+.navitems:hover{
+    opacity: 0.6; 
+}
+
+nav{
+    background: #FFB775;
+}

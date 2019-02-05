@@ -1,4 +1,12 @@
 h2 {
-    font-family: "Arial";
-    color: lightskyblue;
+    font-family: Arial, fantasy;
+    color: #556b2f;
+    font-size: 300%;
+    font-weight:bold;
 }
+span {
+    font-size:140%;
+    color: #556b2f;
+    font-weight:bolder;
+}
+

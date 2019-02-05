@@ -6,8 +6,8 @@
 
 a {
   text-decoration: none;
-  /* color: yellow; */
-  color: #ebfc7b;
+  /* color: #ebfc7b; */
+  color: #556b2f;
 }
 
 .deletebutton:hover {
@@ -15,11 +15,11 @@ a {
 }
 
 h1 {
-  font-family: Chalkdust, fantasy;
+  font-family: Arial, fantasy;
   font-weight: bold;
   font-size: 500%;
-  /* color: #ebfc7b; */
-  color: #07b707;
+  /* color: #07b707; */
+  color: #556b2f;
 }
 
 .id{

@@ -1,11 +1,13 @@
 <div *ngIf="order">
     <h2>{{order.name}} Details</h2>
-      <div><span>id: </span>{{order.id}}</div>
+      <div><span class="id">id: {{order.id}}</span></div>
     <div>
-      <label>Name:
+      <label><span class="name">Name:</span>
         <input [(ngModel)] = "order.name" placeholder="Order Name">
       </label>
-      <div> {{order.Item.person}} ordered {{order.Item.quantity}} {{order.Item.menuitem}} <br> The price of this item is: {{order.Item.price}}</div>
+      <div><span> {{order.Item.person}} ordered {{order.Item.quantity}} {{order.Item.menuitem}} 
+        <br> 
+        The price of this item is: {{order.Item.price}}</span></div>
     </div>
         <hr>
       <button class="btn btn-info"(click)="goBack()">Go Back</button>

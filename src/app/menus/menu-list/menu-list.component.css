@@ -4,17 +4,59 @@
     font-weight:bold;
   }
 
-  .idandname {
-    color: white;
-  }
-
   h1 {
-    color: white;
+    font-family: Chalkdust, fantasy;
+    font-weight: bold;
+    font-size: 500%;
+    /* color: #07b707; */
+    color: #556b2f;
   }
-  .idclass {
-    color:white;
+  .id{
+    font-size: 200%;
+    font-weight: bolder;
+    text-decoration: none;
+    /* color: #ebfc7b; */
+    color: #556b2f;
+  }
+  
+  .name {
+    font-size: 140%;
+    text-decoration: none;
+    /* color: #ebfc7b; */
+    color: #556b2f;
+  
   }
 
-  div {
-    color: white;
+  .button{
+    font-size: 120%;
+    margin-left: 10px;
+  }
+  
+  .button:hover{
+    font-weight:bold;
+  }
+  
+  .deletebutton:hover {
+    background-color: #cbeded;
+  }
+
+  .deletebutton {
+    background-color: lightcyan;
+    border-radius: 7px;
+    
+  }
+
+  .addnewbutton{
+    background-color: #c4efc4;
+    border-radius: 10px;
+    height: 40px;
+    width: 30%;
+  }
+  
+  .addnewbutton:hover{
+    background-color: #d2f7d2;
+  }
+  
+  .addnewbuttontext:hover{
+    font-style: italic;
   }
