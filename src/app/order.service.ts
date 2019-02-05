@@ -18,9 +18,9 @@ export class OrderService {
     return of (ORDERS);
 
   }
-  
+
 getOrder(id: number): Observable<OrderModel>{
   return of (ORDERS.find(order => order.id === id));
-}
+  }
 
 }

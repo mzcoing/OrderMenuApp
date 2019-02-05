@@ -7,16 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  // selectedOrder: OrderListComponent;
-
   constructor() { }
 
   ngOnInit() {
   }
-
-  // onSelect(order: OrderListComponent):void {
-
-  //   this.selectedOrder = order;
-  // }
-
 }

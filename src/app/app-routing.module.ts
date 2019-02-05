@@ -18,5 +18,3 @@ export class AppRoutingModule { }
 
 export const routingComponents = [OrdersComponent, MenusComponent, OrderDetailsComponent]
 
-// Maybe add OrderDetailsComponent to the routingComponents array
-

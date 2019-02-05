@@ -5,8 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HttpHeaders} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-// import { OrdersComponent } from './orders/orders.component';
-// import { MenusComponent } from './menus/menus.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
 import { MenuListComponent } from './menus/menu-list/menu-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -17,8 +15,6 @@ import { OrderDetailsComponent } from './orders/order-details/order-details.comp
   declarations: [
     AppComponent,
     routingComponents,
-    // OrdersComponent,
-    // MenusComponent,
     OrderListComponent,
     MenuListComponent,
     DashboardComponent,

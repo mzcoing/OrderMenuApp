@@ -1,5 +1,66 @@
-.selected {
-    background-color: rgb(173, 192, 201) !important;
-    color: white;
-    font-weight:bold;
-  }
+.deletebutton {
+  background-color: lightcyan;
+  border-radius: 7px;
+  
+}
+
+a {
+  text-decoration: none;
+  /* color: yellow; */
+  color: #ebfc7b;
+}
+
+.deletebutton:hover {
+  background-color: #cbeded;
+}
+
+h1 {
+  font-family: Chalkdust, fantasy;
+  font-weight: bold;
+  font-size: 500%;
+  /* color: #ebfc7b; */
+  color: #07b707;
+}
+
+.id{
+  font-size: 200%;
+  font-weight: bolder;
+}
+
+.name {
+  font-size: 140%;
+
+}
+
+.name:hover {
+  font-weight: bolder;
+}
+
+.button{
+  font-size: 120%;
+  margin-left: 10px;
+}
+
+.button:hover{
+  font-weight:bold;
+}
+
+.addnewbutton{
+  background-color: #c4efc4;
+  border-radius: 10px;
+  height: 40px;
+  width: 30%;
+}
+
+.addnewbutton:hover{
+  background-color: #d2f7d2;
+}
+
+.addnewbuttontext:hover{
+  font-style: italic;
+}
+
+/* body{
+  background-image: url('./../../../assets/img/prism.png');
+  
+} */
