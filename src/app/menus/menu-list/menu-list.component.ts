@@ -8,17 +8,19 @@ import { MenuModel } from './../../menu.model';
 })
 export class MenuListComponent implements OnInit {
 
+  
+
   menus: MenuModel[] = [
 
-    new MenuModel(1, 'First Menu', [{title: 'naziv1', price: 1}]),
-    new MenuModel(2, 'Second Menu', [{title: 'naziv2', price: 12}]),
-    new MenuModel(3, 'Third Menu', [{title: 'naziv3', price: 123}]),
-    new MenuModel(4, 'Fourth Menu', [{title: 'naziv4', price: 1234}]),
-    new MenuModel(5, 'Fifth Menu', [{title: 'naziv5', price: 1235}])
+    new MenuModel(1, 'First Menu'),
+    new MenuModel(2, 'Second Menu'),
+    new MenuModel(3, 'Third Menu'),
+    new MenuModel(4, 'Fourth Menu'),
+    new MenuModel(5, 'Fifth Menu')
 
   ]
-
-  selectedMenu: MenuModel;
+  selectedMenu: MenuModel = new MenuModel (0, 'Choose a menu to see the');
+  
 
   constructor() { }
 
@@ -29,3 +31,5 @@ export class MenuListComponent implements OnInit {
     this.selectedMenu = menu;
   }
 }
+
+// , [{title: 'naziv1', price: 1}]

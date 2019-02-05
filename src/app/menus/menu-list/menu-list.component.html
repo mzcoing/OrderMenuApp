@@ -1,49 +1,26 @@
 <hr>
 <h2>Menus</h2>
-<div class="row">
+<!-- <div class="row"> -->
   <div class="col-md-6">
       <ul>
         <li *ngFor="let menu of menus"
         [class.selected]="menu === selectedMenu"
         (click)="onSelect(menu)">
-          <p> {{ menu.id }}.  {{menu.name}} </p>
+        <span class="badge"> {{menu.id}}. </span>  {{menu.name}}
         </li>
       </ul>
 <button class="btn btn-success">Add New Menu</button>
 </div>
 
 <div *ngIf="selectedMenu">
-  <h2>{{selectedMenu.menu | uppercase}} Menu Details</h2>
-  <div><span>id: </span> {{ selectedMenu.id }}</div>
+
+  <h2>{{selectedMenu.name}} details</h2>
+  <div ><span>id: </span> {{ selectedMenu.id }}</div>
 </div>
+<div *ngIf = "selectedMenu.name != 'Choose a menu to see the'">
 <label>name:
-  <input [(ngModel)] = "selectedMenu.name" placeholder="name">
-</label>  
-
-</div>
-<!-- <hr>
-<h2>Orders</h2>
-<div class="row">
-  <div class="col-md-6">
-      <ul>
-        <li *ngFor="let order of orders"
-        [class.selected]="order === selectedOrder"
-        (click)="onSelect(order)">
-        <p> {{order.id}}.  {{order.name}}</p>
-        </li>
-      </ul>
-    <button class="btn btn-success">Add New Order</button>
-
-<div *ngIf="selectedOrder">
-
-      <h2>{{selectedOrder.order | uppercase}} Details</h2>
-      <div><span>id: </span>{{selectedOrder.id}}</div>
-<div>
-  <label>name:
-    <input [(ngModel)] = "selectedOrder.name" placeholder="name">
-  </label>
-</div>
-    </div>
-  </div>
-</div> -->
+  <input [(ngModel)] = "selectedMenu.name"  placeholder="name">
+</label>
+</div>  
+<!-- </div> -->
   

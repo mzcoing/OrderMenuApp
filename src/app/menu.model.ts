@@ -1,16 +1,18 @@
 export class MenuModel {
 
-    public MenuItem = Array<{title: string, price: number}>();
-    id: number;
-    name: string;
+    // public MenuItem = Array<{title: string, price: number}>();
+    // id: number;
+    // name: string;
 
-    constructor(id: number, name: string, MenuItem: Array<{title: string, price: number}>){
+    constructor(public id: number, public name: string){
 
-        this.id = id;
-        this.name = name;
-        this.MenuItem = MenuItem;
+        // this.id = id;
+        // this.name = name;
+        // this.MenuItem = MenuItem;
 
     }
 
 
 }
+
+// MenuItem: Array<{title: string, price: number}>
