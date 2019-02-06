@@ -1,0 +1,54 @@
+.items {
+    font-size:125%;
+}
+h2 {
+  font-family: Arial, fantasy;
+  color: #556b2f;
+  font-size: 300%;
+  font-weight:bold;
+  cursor: default;
+}
+  .addnewbuttontext:hover{
+    font-style: italic;
+  }
+
+  .addnewitembutton {
+    background-color: #c4efc4;
+    width: 30%;
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  .addnewitembutton:hover{
+    background-color: #d2f7d2;
+  }
+
+  .deletebutton {
+    background-color: lightcyan;
+    border-radius: 7px;
+    font-size: 12px;
+    
+  }
+
+  .deletebutton:hover {
+    background-color: #cbeded;
+  }
+
+  .button{
+    font-size: 109%;
+    margin-left: 10px;
+  }
+  
+  .button:hover{
+    font-weight:bold;
+  }
+
+  li {
+    cursor: default;
+    list-style-type:none;
+  }
+  h3 {
+    font-size: 200%;
+    font-weight: bolder;
+    color: #556b2f;
+  }

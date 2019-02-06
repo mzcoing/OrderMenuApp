@@ -1,6 +1,8 @@
+import { ItemClass } from './item.model';
+
 export class MenuModel {
 
-    //  public MenuItem = Array<{title: string, price: number}>();
+
 id: number;
 name: string;
 
@@ -8,7 +10,8 @@ name: string;
 
          this.id = id;
          this.name = name;
-        //  this.MenuItem = MenuItem;
+         
+          //this.MenuItem{this.title, this.price} = MenuItem;
 
     }
 

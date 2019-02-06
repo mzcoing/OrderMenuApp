@@ -9,6 +9,7 @@ import { OrderListComponent } from './orders/order-list/order-list.component';
 import { MenuListComponent } from './menus/menu-list/menu-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderDetailsComponent } from './orders/order-details/order-details.component';
+import { MenuDetailsComponent } from './menus/menu-details/menu-details.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { OrderDetailsComponent } from './orders/order-details/order-details.comp
     MenuListComponent,
     DashboardComponent,
     OrderDetailsComponent,
+    MenuDetailsComponent,
   ],
   imports: [
     BrowserModule,

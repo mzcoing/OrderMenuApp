@@ -1,25 +1,22 @@
+
 <h1>Menus</h1><br>
       <ul>
-        <li *ngFor="let menu of menus"
-        [class.selected]="menu === selectedMenu"
-        (click)="onSelect(menu)">
-        <span class="id"> {{menu.id}}.</span>   <span class="name">{{menu.name}}</span>
+        <li *ngFor="let menu of menus">
+          <a routerLink="/details/{{menu.id}}">
+        <span class="id"> {{menu.id}}. </span>   <span class="name">{{menu.name}}</span></a>
         <span class="button"><button class="deletebutton">Delete</button></span>
         <br><br>
       </li>
       </ul>
-      <span class="addnewbuttontext"><button class="addnewbutton">Add New Order</button></span>
 
-<div *ngIf="selectedMenu">
+      <label class="forma">
+          Name of the menu:
+          <input #menuName/>
 
-  <h2>{{selectedMenu.name}} details</h2>
-  <div ><span class="idclass">id:  {{ selectedMenu.id }}</span></div>
-</div>
-<div *ngIf = "selectedMenu.name != 'Choose a menu to see the'">
-<label>name:
-  <input [(ngModel)] = "selectedMenu.name"  placeholder="name">
-</label>
-</div>  
+      </label><br>
+      <span class="addnewbuttontext"><button class="addnewbutton">Add New Menu</button></span>
+
+
 <!-- </div> -->
 
   

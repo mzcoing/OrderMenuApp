@@ -1,0 +1,33 @@
+<div *ngIf="menu">
+
+    <h2>{{menu.name}} details</h2>
+    <div ><span class="idclass">id:  {{ menu.id }}</span></div>
+  </div>
+  <!-- <div *ngIf = "selectedMenu.name != 'Choose a menu to see the'"> -->
+  <label>name:
+    <input [(ngModel)] = "menu.name"  placeholder="name">
+  </label>
+
+  <h2>Available Items: </h2>
+
+  <ul>
+    <li *ngFor="let item of items">
+      <span class="items">{{item.menuitem}} costs {{item.price}}</span> 
+      <span class="button"><button class="deletebutton">Remove</button></span>
+    </li>
+  </ul>
+
+  <h3>Add a New Item to the List</h3>
+
+  <label class="forma">
+      Name of the item:
+      <input #itemName placeholder="What's the name of the item?" onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s the name of the item?'"/><br><br>
+      Item's price:
+      <input #itemPrice placeholder="What's the price?"onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s the price?'"/><br><br>
+      <span class="addnewbuttontext"><button class="addnewitembutton">Add</button></span>
+  </label><br>
+  <hr>
+
+  <button class="btn btn-info"(click)="goBack()">Go Back</button>
+
+  <!-- </div>   -->

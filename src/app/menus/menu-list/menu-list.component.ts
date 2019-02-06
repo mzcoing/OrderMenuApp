@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MenuModel } from './../../menu.model';
+import { MenuService } from './../../menu.service';
+
 
 @Component({
   selector: 'app-menu-list',
@@ -8,27 +10,23 @@ import { MenuModel } from './../../menu.model';
 })
 export class MenuListComponent implements OnInit {
 
-  
+  selectedMenu: MenuModel;
 
-  menus: MenuModel[] = [
+  menus: MenuModel[];
 
-    new MenuModel(1, 'First Menu'),
-    new MenuModel(2, 'Second Menu'),
-    new MenuModel(3, 'Third Menu'),
-    new MenuModel(4, 'Fourth Menu'),
-    new MenuModel(5, 'Fifth Menu')
-
-  ]
-  selectedMenu: MenuModel = new MenuModel (0, 'Choose a menu to see the')
-  
-
-  constructor() { }
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
+    this.getMenus();
   }
 
   onSelect(menu: MenuModel): void {
     this.selectedMenu = menu;
+  }
+
+  getMenus(): void {
+    this.menuService.getMenus()
+    .subscribe(menus => this.menus = menus);
   }
 }
 

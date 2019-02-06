@@ -6,7 +6,6 @@
 
 a {
   text-decoration: none;
-  /* color: #ebfc7b; */
   color: #556b2f;
 }
 
@@ -18,7 +17,6 @@ h1 {
   font-family: Arial, fantasy;
   font-weight: bold;
   font-size: 500%;
-  /* color: #07b707; */
   color: #556b2f;
 }
 
@@ -60,7 +58,6 @@ h1 {
   font-style: italic;
 }
 
-/* body{
-  background-image: url('./../../../assets/img/prism.png');
-  
-} */
+.forma {
+  font-size: 120%;
+}

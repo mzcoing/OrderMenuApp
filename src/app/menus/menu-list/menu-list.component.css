@@ -5,24 +5,21 @@
   }
 
   h1 {
-    font-family: Chalkdust, fantasy;
+    font-family: Arial, fantasy;
     font-weight: bold;
     font-size: 500%;
-    /* color: #07b707; */
     color: #556b2f;
   }
   .id{
     font-size: 200%;
     font-weight: bolder;
     text-decoration: none;
-    /* color: #ebfc7b; */
     color: #556b2f;
   }
   
   .name {
     font-size: 140%;
     text-decoration: none;
-    /* color: #ebfc7b; */
     color: #556b2f;
   
   }
@@ -59,4 +56,12 @@
   
   .addnewbuttontext:hover{
     font-style: italic;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  .name:hover {
+    font-weight: bolder;
   }

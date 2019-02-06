@@ -27,6 +27,8 @@ export class OrderListComponent implements OnInit {
     .subscribe(orders => this.orders = orders);
 
   }
+}
+
 
 
   
@@ -37,4 +39,3 @@ export class OrderListComponent implements OnInit {
   //   this.selectedOrder = order;
   // }
 
-}
