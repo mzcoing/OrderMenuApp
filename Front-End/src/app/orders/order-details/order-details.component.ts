@@ -3,9 +3,11 @@ import { OrderModel } from './../../order.model';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { OrderService } from './../../order.service';
-import { ITEMS } from 'src/app/mock-items';
+// import { ITEMS } from 'src/app/mock-items';
+import { ItemService } from './../../item.service';
 import { MenuModel } from './../../menu.model';
 import { MenuService } from './../../menu.service';
+import { ItemClass } from 'src/app/item.model';
 
 @Component({
   selector: 'app-order-details',
@@ -18,12 +20,13 @@ export class OrderDetailsComponent implements OnInit {
 
   constructor(
     private menuService: MenuService,
+    private itemService: ItemService,
     private route: ActivatedRoute,
     private orderService: OrderService,
     private location: Location
   ) { }
 
-  items = ITEMS;
+  items: ItemClass[];
   totalamount: number;
   selectedMenu: MenuModel;
   menus: MenuModel[];
@@ -42,8 +45,13 @@ export class OrderDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getOrder();
     this.getMenus();
+    this.getItems();
   }
 
+  getItems(): void {
+    this.itemService.getItems()
+    .subscribe(items => this.items = items);
+  }
   getOrder(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.orderService.getOrder(id)

@@ -10,6 +10,7 @@ import java.util.Collection;
 
 @Path("/menu")
 @Produces(MediaType.APPLICATION_JSON)
+
 public class MenuResource {
 
     private MenuRepository menuRepository;
@@ -23,7 +24,6 @@ public class MenuResource {
     public Collection<Menu> getAll() {
         return this.menuRepository.getAllMenus();
     }
-
 
     @GET
     @Path("/{id}")

@@ -1,6 +1,6 @@
 export class ItemClass {
 
-    constructor(public person: string, public menuitem: string, public quantity: number, public price: number){}
+    constructor(public id: number, public person: string, public menuitem: string, public quantity: number, public price: number){}
 
 }
 

@@ -4,7 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { MenuService } from './../../menu.service';
 import { ItemClass } from './../../item.model';
-import { ITEMS } from './../../mock-items';
+// import { ITEMS } from './../../mock-items';
+import { ItemService } from 'src/app/item.service';
 
 @Component({
   selector: 'app-menu-details',
@@ -14,20 +15,33 @@ import { ITEMS } from './../../mock-items';
 export class MenuDetailsComponent implements OnInit {
 
   @Input() menu: MenuModel;
+  @Input() item: ItemClass;
+
+  items: ItemClass[];
 
   constructor(
     private route: ActivatedRoute,
     private menuService: MenuService,
-    private location: Location
+    private location: Location,
+    private itemService: ItemService
   ) { }
 
-  items = ITEMS;
+  // items = ITEMS;
 
   ngOnInit(): void {
     this.getMenu();
+    this.getItems();
   }
 
+  getItems(): void {
+    this.itemService.getItems()
+    .subscribe(items => this.items = items);
+  }
 
+  // getMenus(): void {
+  //   this.menuService.getMenus()
+  //   .subscribe(menus => this.menus = menus);
+  // }
 
   getMenu(): void {
     const id = +this.route.snapshot.paramMap.get('id');

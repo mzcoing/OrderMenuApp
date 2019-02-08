@@ -7,11 +7,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MenuRepository {
-
+    
     private Map<Integer, Menu> menus;
 
     public MenuRepository() {
         this.menus = new HashMap<>();
+        addNewMenu(new Menu(0, "First Menu"));
+        addNewMenu(new Menu(1, "Second Menu"));
+        addNewMenu(new Menu(2, "Third Menu"));
+        addNewMenu(new Menu(3, "Fourth Menu"));
+        addNewMenu(new Menu(4, "Fifth Menu"));
+        addNewMenu(new Menu(5, "Sixth Menu"));
     }
 
     public Collection<Menu> getAllMenus() {
@@ -23,9 +29,10 @@ public class MenuRepository {
     }
 
     public Collection<Menu> addNewMenu(final Menu menu) {
-        this.menus.put(menu.getId(), menu);
 
+        this.menus.put(menu.getId(), menu);
         return this.menus.values();
+        
     }
 
     public Collection<Menu> removeMenu(final int id) {

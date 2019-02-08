@@ -28,6 +28,15 @@ export class MenuListComponent implements OnInit {
     this.menuService.getMenus()
     .subscribe(menus => this.menus = menus);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {return;}
+    this.menuService.addMenu({ name } as MenuModel)
+    .subscribe(menu => {
+      this.menus.push(menu);
+    });
+  }
 }
 
 // , [{title: 'naziv1', price: 1}]

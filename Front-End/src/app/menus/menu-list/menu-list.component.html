@@ -9,13 +9,14 @@
       </li>
       </ul>
 
+      <div>
       <label class="forma">
           Name of the menu:
-          <input #menuName/>
+          <input #menuName />
 
       </label><br>
-      <span class="addnewbuttontext"><button class="addnewbutton">Add New Menu</button></span>
-
+      <span class="addnewbuttontext"><button class="addnewbutton" (click)="add(menuName.value); menuName.value=''">Add New Menu</button></span>
+    </div>
 
 <!-- </div> -->
 
