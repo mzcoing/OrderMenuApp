@@ -11,6 +11,7 @@ public class Main extends Application<Config> {
 
     public static void main(String[] args) throws Exception {
         new Main().run(args);
+        
     }
 
     @Override

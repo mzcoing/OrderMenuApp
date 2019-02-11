@@ -34,7 +34,7 @@
 //     }
 
 //     public Collection<Item> addNewItem(final Item item) {
-//         this.items.put(item.getId(), item);
+//         this.items.put(1, item);
 
 //         return this.items.values();
 //     }
