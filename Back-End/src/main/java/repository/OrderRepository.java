@@ -17,6 +17,7 @@ public class OrderRepository {
         addNewOrder (new Order (3, "Third Order"));
         addNewOrder (new Order (4, "Fourth Order"));
         addNewOrder (new Order (5, "Fifth Order"));
+        addNewOrder (new Order (6, "Sixth Order"));
     }
 
     public Collection<Order> getAllOrders() {

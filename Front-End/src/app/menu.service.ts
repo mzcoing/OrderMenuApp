@@ -23,9 +23,7 @@ export class MenuService {
 
     return this.http.get<MenuModel[]>(this.menusUrl)
     .pipe(
-      // map(response => response)
     );
-    //return of (MENUS);
 
   }
 
@@ -38,6 +36,21 @@ getMenu(id: number): Observable<MenuModel>{
   addMenu (menu: MenuModel): Observable<MenuModel> {
     return this.http.post<MenuModel>(this.menusUrl, menu, httpOptions)
   }
+
+  deleteMenu (menu: MenuModel | number): Observable<MenuModel> {
+    const id = typeof menu === 'number' ? menu: menu.id;
+    const url = `${this.menusUrl}/${id}`;
+
+    return this.http.delete<MenuModel>(url, httpOptions). pipe(
+
+    );
+  }
+
+  // updateMenu (menu: MenuModel): Observable<any> {
+  //   return this.http.put(this.menusUrl, menu, httpOptions).pipe(
+
+  //   );
+  // }
 
 
 }

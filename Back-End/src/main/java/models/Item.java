@@ -4,34 +4,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Item {
 
-    private Integer id;
     private String person;
-    private String menuitem;
     private Integer quantity;
     private Integer price;
+    private String name;
 
     public Item() { }
 
-    public Item(Integer id, String person, String menuitem, int quantity, int price) {
-        this.id = id;
+    public Item(String person, String name, int quantity, int price) {
+
+        this.name = name;
         this.person = person;
-        this.menuitem = menuitem;
         this.quantity = quantity;
         this.price = price;
     }
 
     @JsonProperty
-    public Integer getId(){
-        return this.id;
-    }
-    @JsonProperty
     public String getPerson() {
         return this.person;
-    }
-
-    @JsonProperty
-    public String getMenuitem() {
-        return this.menuitem;
     }
 
     @JsonProperty
@@ -42,5 +32,10 @@ public class Item {
     @JsonProperty
     public Integer getPrice(){
         return this.price;
+    }
+
+    @JsonProperty
+    public String getName(){
+        return this.name;
     }
 }

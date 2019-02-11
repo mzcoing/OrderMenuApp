@@ -2,10 +2,10 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 import repository.MenuRepository;
 import repository.OrderRepository;
-import repository.ItemRepository;
+// import repository.ItemRepository;
 import resources.MenuResource;
 import resources.OrderResource;
-import resources.ItemResource;
+// import resources.ItemResource;
 
 public class Main extends Application<Config> {
 
@@ -26,14 +26,12 @@ public class Main extends Application<Config> {
 
         final OrderResource orderResource = new OrderResource(orderRepository);
 
-        final ItemRepository itemRepository = new ItemRepository();
+        // final ItemRepository itemRepository = new ItemRepository();
 
-        final ItemResource itemResource = new ItemResource(itemRepository);
+        // final ItemResource itemResource = new ItemResource(itemRepository);
 
         environment.jersey().register(menuResource);
         environment.jersey().register(orderResource);
-        environment.jersey().register(itemResource);
-    }
-
-    
+        // environment.jersey().register(itemResource);
+    }   
 }

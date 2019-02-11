@@ -1,23 +1,35 @@
 package repository;
 
+import models.Item;
 import models.Menu;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import javassist.expr.NewArray;
+
 public class MenuRepository {
-    
-    private Map<Integer, Menu> menus;
+
+    public Map<Integer, Menu> menus;
+    public int counter = 0;
+    public ArrayList<Item> items;
 
     public MenuRepository() {
         this.menus = new HashMap<>();
-        addNewMenu(new Menu(0, "First Menu"));
-        addNewMenu(new Menu(1, "Second Menu"));
-        addNewMenu(new Menu(2, "Third Menu"));
-        addNewMenu(new Menu(3, "Fourth Menu"));
-        addNewMenu(new Menu(4, "Fifth Menu"));
-        addNewMenu(new Menu(5, "Sixth Menu"));
+        this.items = new ArrayList<>();
+
+        //  addNewMenu(new Menu(this.getNewId(), "First Menu", new ArrayList<Item>("Milos", "pljeskavica", 5, 15)));
+         addNewMenu(new Menu(this.getNewId(), "Second Menu", new ArrayList<>(this.items)));
+         addNewMenu(new Menu(this.getNewId(), "Third Menu", new ArrayList<>(this.items)));
+         addNewMenu(new Menu(this.getNewId(), "Fourth Menu", new ArrayList<>(this.items)));
+        //  addNewMenu(new Menu(this.getNewId(), "Third Menu", new ArrayList()));
+        //  addNewMenu(new Menu(this.getNewId(), "Fourth Menu", new ArrayList()));
+    }
+
+    private int getNewId() {
+        return counter++;
     }
 
     public Collection<Menu> getAllMenus() {
@@ -27,13 +39,14 @@ public class MenuRepository {
     public Menu get(final int id) {
         return this.menus.get(id);
     }
-
+ 
     public Collection<Menu> addNewMenu(final Menu menu) {
+        menu.setId(this.getNewId());
 
         this.menus.put(menu.getId(), menu);
+
         return this.menus.values();
-        
-    }
+    } 
 
     public Collection<Menu> removeMenu(final int id) {
         this.menus.remove(id);

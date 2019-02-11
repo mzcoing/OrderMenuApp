@@ -37,6 +37,9 @@ export class MenuListComponent implements OnInit {
       this.menus.push(menu);
     });
   }
-}
 
-// , [{title: 'naziv1', price: 1}]
+  delete(menu: MenuModel): void {
+    this.menus = this.menus.filter(m => m !== menu);
+    this.menuService.deleteMenu(menu).subscribe();
+  }
+}

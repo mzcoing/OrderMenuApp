@@ -1,28 +1,39 @@
-import { Injectable } from '@angular/core';
-import { ItemClass } from './item.model';
-// import { MENUS } from './mock-menus';
-import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+// import { Injectable } from '@angular/core';
+// import { ItemClass } from './item.model';
+// // import { MENUS } from './mock-menus';
+// import { Observable, of } from 'rxjs';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import { catchError, map, tap } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+// const httpOptions = {
+//   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+// };
 
-export class ItemService {
+// @Injectable({
+//   providedIn: 'root'
+// })
 
-  private itemsUrl = 'http://localhost:8080/item';
+// export class ItemService {
 
-  constructor(private http: HttpClient) { }
+//   private itemsUrl = 'http://localhost:8080/item';
 
-  getItems(): Observable<ItemClass[]> {
+//   constructor(private http: HttpClient) { }
 
-    return this.http.get<ItemClass[]>(this.itemsUrl)
-    .pipe(
-      // map(response => response)
-    );
-    //return of (MENUS);
+//   getItems(): Observable<ItemClass[]> {
 
-  }
+//     return this.http.get<ItemClass[]>(this.itemsUrl)
+//     .pipe(
+//       // map(response => response)
+//     );
+//     //return of (MENUS);
 
-}
+//   }
+
+//   deleteItem (item: ItemClass | number): Observable<ItemClass> {
+//     const id = typeof item === 'number' ? item: item.id;
+//     const url = `${this.itemsUrl}/${id}`;
+
+//     return this.http.delete<ItemClass>(url, httpOptions);
+//   }
+
+// }

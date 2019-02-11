@@ -4,8 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { MenuService } from './../../menu.service';
 import { ItemClass } from './../../item.model';
-// import { ITEMS } from './../../mock-items';
-import { ItemService } from 'src/app/item.service';
+// import { ItemService } from 'src/app/item.service';
 
 @Component({
   selector: 'app-menu-details',
@@ -23,25 +22,20 @@ export class MenuDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private menuService: MenuService,
     private location: Location,
-    private itemService: ItemService
+    // private itemService: ItemService
   ) { }
 
-  // items = ITEMS;
 
   ngOnInit(): void {
     this.getMenu();
-    this.getItems();
+    // this.getItems();
   }
 
-  getItems(): void {
-    this.itemService.getItems()
-    .subscribe(items => this.items = items);
-  }
-
-  // getMenus(): void {
-  //   this.menuService.getMenus()
-  //   .subscribe(menus => this.menus = menus);
+  // getItems(): void {
+  //   this.itemService.getItems()
+  //   .subscribe(items => this.items = items);
   // }
+
 
   getMenu(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -53,4 +47,8 @@ export class MenuDetailsComponent implements OnInit {
     this.location.back();
   }
 
+  // delete(item: ItemClass): void {
+  //   this.items = this.items.filter(i => i !== item);
+  //   this.itemService.deleteItem(item).subscribe();
+  // }
 }

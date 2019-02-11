@@ -27,6 +27,11 @@ export class OrderListComponent implements OnInit {
     .subscribe(orders => this.orders = orders);
 
   }
+
+  delete(order: OrderModel): void {
+    this.orders = this.orders.filter (o => o !== order);
+    this.orderService.deleteOrder(order).subscribe();
+  }
 }
 
 

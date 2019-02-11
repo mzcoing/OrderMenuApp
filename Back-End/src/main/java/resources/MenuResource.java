@@ -29,6 +29,8 @@ public class MenuResource {
     @Path("/{id}")
     @Timed
     public Menu get(@PathParam("id") final int id) {
+
+
         return this.menuRepository.get(id);
     }
 
