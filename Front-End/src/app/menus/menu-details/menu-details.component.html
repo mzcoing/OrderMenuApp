@@ -1,19 +1,18 @@
 <div *ngIf="menu">
 
     <h2>{{menu.name}} details</h2>
-    <div ><span class="idclass">id:  {{ menu.id }}</span></div>
+    <div ><span class="idclass">id:  {{menu.id}}</span></div>
   </div>
-  <!-- <div *ngIf = "selectedMenu.name != 'Choose a menu to see the'"> -->
   <label>name:
     <input [(ngModel)] = "menu.name"  placeholder="name"> <button (click) = "save()">save</button>
   </label>
 
   <h2>Available Items: </h2>
-
-  <ul>
-    <li *ngFor="let item of items">
-      <span class="items">{{item.menuitem}} costs {{item.price}}</span> 
-      <span class="button"><button class="deletebutton" (click) = "delete(item)">Remove</button></span>
+      <ul>
+        <li *ngFor = "let item of menu.items">
+              
+        <span class="items">{{item.name}} costs {{item.price}}</span> 
+        <span class="button"><button class="deletebutton" (click) = "delete(item)">Remove</button></span>
     </li>
   </ul>
 
@@ -29,5 +28,3 @@
   <hr>
 
   <button class="btn btn-info"(click)="goBack()">Go Back</button>
-
-  <!-- </div>   -->

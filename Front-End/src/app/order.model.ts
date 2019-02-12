@@ -4,10 +4,13 @@ export class OrderModel{
 
     id: number;
     name: string;
+    menuid: number;
+    items: ItemClass[];
 
-    constructor(id: number,name: string){
+    constructor(id: number,name: string, menuid: number, items: ItemClass[]){
         this.id = id;
         this.name = name;
+        this.menuid = menuid;
+        this.items = items;
+    }
 }
-}
-// constructor(public id: number, public name: string, public Item: ItemClass){}

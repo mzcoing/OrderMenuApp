@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MenuModel } from './menu.model';
-// import { MENUS } from './mock-menus';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -30,7 +28,6 @@ export class MenuService {
 getMenu(id: number): Observable<MenuModel>{
   const url = `${this.menusUrl}/${id}`;
   return this.http.get<MenuModel>(url)
-  // return of (MENUS.find(menu => menu.id === id));
   }
 
   addMenu (menu: MenuModel): Observable<MenuModel> {
@@ -45,12 +42,5 @@ getMenu(id: number): Observable<MenuModel>{
 
     );
   }
-
-  // updateMenu (menu: MenuModel): Observable<any> {
-  //   return this.http.put(this.menusUrl, menu, httpOptions).pipe(
-
-  //   );
-  // }
-
 
 }

@@ -1,23 +1,18 @@
 
 <h1>Menus</h1><br>
-      <ul>
-        <li *ngFor="let menu of menus">
-          <a routerLink="/details/{{menu.id}}">
+  <ul>
+    <li *ngFor="let menu of menus">
+      <a routerLink="/details/{{menu.id}}">
         <span class="id"> {{menu.id}}. </span>   <span class="name">{{menu.name}}</span></a>
         <span class="button"><button class="deletebutton" title="delete menu" (click) = "delete(menu)">Delete</button></span>
-        <br><br>
-      </li>
-      </ul>
+          <br><br>
+    </li>
+  </ul>
 
-      <div>
-      <label class="forma">
-          Name of the menu:
-          <input #menuName />
-
-      </label><br>
-      <span class="addnewbuttontext"><button class="addnewbutton" (click)="add(menuName.value); menuName.value=''">Add New Menu</button></span>
-    </div>
-
-<!-- </div> -->
-
-  
+<div>
+  <label class="forma">
+    Name of the menu:
+      <input #menuName />
+  </label><br>
+    <span class="addnewbuttontext"><button class="addnewbutton" (click)="add(menuName.value); menuName.value=''">Add New Menu</button></span>
+</div>

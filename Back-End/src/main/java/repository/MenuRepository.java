@@ -3,45 +3,34 @@ package repository;
 import models.Item;
 import models.Menu;
 
-import java.awt.List;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-// import javassist.expr.NewArray;
-
 public class MenuRepository {
 
     public Map<Integer, Menu> menus;
     public int counter = 0;
-    public List items;
-    // public List items;
-    // public ArrayList itemsa;
-    // public ArrayList<Item> items;
+    ArrayList<Item> items = new ArrayList<>();
 
     public MenuRepository() {
         this.menus = new HashMap<>();
-        this.items = new List();
-        //  this.items = new List();
+        for (int i=1; i<9; i++) {
+            Item item = new Item("Item " + i, i+200);
 
-        //  addNewMenu(new Menu(this.getNewId(), "First Menu", new ArrayList<Item>("Milos", "pljeskavica", 5, 15)));
-        //  addNewMenu(new Menu(this.getNewId(), "Second Menu", new Item("person", "name", 5, 2)));
-        //  addNewMenu(new Menu(this.getNewId(), "Second Menu", new List.Item()("Milos", "pljeskavica", 1, 110)));
-        //  addNewMenu(new Menu(this.getNewId(), "Third Menu", new ArrayList<>(this.items)));
-        addNewMenu(new Menu(this.getNewId(), "Some Menu", new ArrayList<Item>()));
-        addNewMenu(new Menu(this.getNewId(), "Some Menu", new ArrayList<Item>()));
-        addNewMenu(new Menu(this.getNewId(), "Some Menu", new ArrayList<Item>()));
-        // // // addNewMenu(new Menu(this.getNewId(), "Some Menu", items2.add(new Item("asd","dsa",5,5)))); //////// <<<<<<!!!!
+            this.items.add(item);
+        }
 
-        // addNewMenu(new Menu(this.getNewId(), "Some Menu", addNewItem(new Item("asd", "dsa", 5, 5))));
-
-        //  addNewMenu(new Menu(this.getNewId(), "Third Menu", new ArrayList(items.add("asd","asd",5,5))));
-        //  addNewMenu(new Menu(this.getNewId(), "Fourth Menu", new ArrayList()));
+        addNewMenu(new Menu(this.getNewId(), "First Menu", this.items));
+        addNewMenu(new Menu(this.getNewId(), "Second Menu", this.items));
+        addNewMenu(new Menu(this.getNewId(), "Third Menu", this.items));
+        addNewMenu(new Menu(this.getNewId(), "Fourth Menu", this.items));
+        addNewMenu(new Menu(this.getNewId(), "Fifth Menu", this.items));
+        addNewMenu(new Menu(this.getNewId(), "Sixth Menu", this.items));
+        addNewMenu(new Menu(this.getNewId(), "Seventh Menu", this.items));
        
     }
-
-    
  
     private int getNewId() {
         return counter++;

@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { MenuService } from './../../menu.service';
 import { ItemClass } from './../../item.model';
-// import { ItemService } from 'src/app/item.service';
 
 @Component({
   selector: 'app-menu-details',
@@ -14,29 +13,19 @@ import { ItemClass } from './../../item.model';
 export class MenuDetailsComponent implements OnInit {
 
   @Input() menu: MenuModel;
-  @Input() item: ItemClass;
-
-  items: ItemClass[];
 
   constructor(
     private route: ActivatedRoute,
     private menuService: MenuService,
     private location: Location,
-    // private itemService: ItemService
   ) { }
 
+  menus: MenuModel[];
+  items: ItemClass[];
 
   ngOnInit(): void {
     this.getMenu();
-    // this.getItems();
   }
-
-  // getItems(): void {
-  //   this.itemService.getItems()
-  //   .subscribe(items => this.items = items);
-  // }
-
-
   getMenu(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.menuService.getMenu(id)
@@ -46,9 +35,4 @@ export class MenuDetailsComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
-  // delete(item: ItemClass): void {
-  //   this.items = this.items.filter(i => i !== item);
-  //   this.itemService.deleteItem(item).subscribe();
-  // }
 }

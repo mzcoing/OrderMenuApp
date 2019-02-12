@@ -1,46 +1,40 @@
 <div class="all">
-<div class="left">
-<div *ngIf="order">
-    <h2>{{order.name}} Details</h2>
-      <div><span class="id">id: {{order.id}}</span></div>
-    <div>
-      <label><span class="name">Name:</span>
-        <input [(ngModel)] = "order.name" placeholder="Order Name">
-      </label><br><br>
-      <div> <ul>
-        <li *ngFor="let item of items"><span>
-        
-      {{item.person}} ordered {{item.quantity}} {{item.menuitem}} 
-        <br> 
-        The price of this item is: <span class="itemprice">{{item.price}}</span> </span><span class="removebuttons"><button class="x">X</button></span><span class="minusonebtn"><button class="x">-1</button></span><hr></li></ul></div>
+  <div class="left">
+    <div *ngIf="order">
+      <h2>{{order.name}} Details</h2>
+        <div><span class="id">id: {{order.id}}</span></div>
+      <div>
+        <label><span class="name">Name:</span>
+          <input [(ngModel)] = "order.name" placeholder="Order Name">
+        </label><br><br>
+        <div> <ul>
+          <li *ngFor="let item of order.items"><span>
+          {{item.person}} ordered {{item.quantity}} {{item.name}} 
+            <br> 
+          The price of this item is: <span class="itemprice">{{item.price}}</span> </span><span class="removebuttons"><button class="x">X</button></span><span class="minusonebtn"><button class="x">-1</button></span><hr></li></ul></div>
 
-        <span class="name">The total price is: <span class="total">{{getTotal()}}</span></span>
+          <span class="name">The total price is: <span class="total">{{getTotal()}}</span></span>
 
-    </div>
-        <hr>
-      <div class="bottommargin"><button class="btn btn-info"(click)="goBack()">Go Back</button></div>
-</div>
-</div>
+        </div>
+          <hr>
+          <div class="bottommargin"><button class="btn btn-info"(click)="goBack()">Go Back</button></div>
+        </div>
+      </div>
 
-<div class="right">
+  <div class="right">
 
-   <h2>Choose a Menu</h2>
-   <ul class="openmenus">
-     <button class="allmenus">All Menus</button><br><br>
-    <li>
-      <ul class = "menulista" *ngFor="let menu of menus">
-          <!-- <a routerLink="/details/{{menu.id}}"> -->
-        <button class="individualmenus"><span class="id"> {{menu.id}}.</span>   <span class="name">{{menu.name}}</span></button>
-        <li class = "lista" *ngFor="let item of items">
-          <a><span class="names">{{item.menuitem}} - {{item.price}}</span></a>
+    <h2>Choose a Menu</h2>
+      <ul class="openmenus">
+        <button class="allmenus">All Menus</button><br><br>
+      <li>
+        <ul class = "menulista" *ngFor="let menu of menus">
+          <button class="individualmenus"><span class="id"> {{menu.id}}.</span>   <span class="name">{{menu.name}}</span></button>
+        <li class = "lista" *ngFor="let item of menu.items">
+          <a><span class="names">{{item.name}} - {{item.price}}</span></a>
         </li>
-      <br><br>
-          </ul>
-        </li>
+          <br><br>
         </ul>
-
-    
-    </div>
-
-
+      </li>
+      </ul>
+  </div>
 </div>
