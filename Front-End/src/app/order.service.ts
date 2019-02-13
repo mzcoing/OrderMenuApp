@@ -39,4 +39,8 @@ getOrder(id: number): Observable<OrderModel>{
     );
   }
 
+  addOrder (order: OrderModel): Observable<OrderModel> {
+    return this.http.post<OrderModel>(this.ordersUrl, order, httpOptions)
+  }
+
 }

@@ -12,29 +12,40 @@ public class MenuRepository {
 
     public Map<Integer, Menu> menus;
     public int counter = 0;
+    public String name = "";
     ArrayList<Item> items = new ArrayList<>();
 
     public MenuRepository() {
         this.menus = new HashMap<>();
         for (int i=1; i<9; i++) {
             Item item = new Item("Item " + i, i+200);
-
             this.items.add(item);
         }
 
-        addNewMenu(new Menu(this.getNewId(), "First Menu", this.items));
-        addNewMenu(new Menu(this.getNewId(), "Second Menu", this.items));
-        addNewMenu(new Menu(this.getNewId(), "Third Menu", this.items));
-        addNewMenu(new Menu(this.getNewId(), "Fourth Menu", this.items));
-        addNewMenu(new Menu(this.getNewId(), "Fifth Menu", this.items));
-        addNewMenu(new Menu(this.getNewId(), "Sixth Menu", this.items));
-        addNewMenu(new Menu(this.getNewId(), "Seventh Menu", this.items));
+        addNewMenu(new Menu(1, "First Menu", this.items));
+        addNewMenu(new Menu(2, "Second Menu", this.items));
+        addNewMenu(new Menu(3, "Third Menu", this.items));
+        addNewMenu(new Menu(4, "Fourth Menu", this.items));
+        addNewMenu(new Menu(5, "Fifth Menu", this.items));
+        addNewMenu(new Menu(6, "Sixth Menu", this.items));
+        addNewMenu(new Menu(7, "Seventh Menu", this.items));
        
     }
  
     private int getNewId() {
         return counter++;
     }
+
+
+    // public Collection<Menu> removeItem(final Menu menu){
+    //     menu.setItems(this.getNewList());
+    //     this.menus.put(menu.ge)
+    // }
+
+    // public Menu replace(final int id, final Menu menu){
+    //     return this.menus.replace(id, menu);
+    // }
+
 
     public Collection<Menu> getAllMenus() {
         return this.menus.values();
@@ -45,17 +56,21 @@ public class MenuRepository {
     }
  
     public Collection<Menu> addNewMenu(final Menu menu) {
+
         menu.setId(this.getNewId());
-
         this.menus.put(menu.getId(), menu);
-
         return this.menus.values();
+
     } 
 
     public Collection<Menu> removeMenu(final int id) {
         this.menus.remove(id);
-
         return this.menus.values();
     }
+    // public Collection<Menu> updateMenu(final Menu menu){
+    //     menu.setName(this.getNewName());
+    //     return this.menus.values();
+        
+    // }
 
 }

@@ -13,6 +13,7 @@ public class OrderRepository {
 
     private Map<Integer, Order> orders;
     ArrayList<Item> items = new ArrayList<>();
+    public int counter = 0;
     // private Integer menuid;
 
 
@@ -31,6 +32,10 @@ public class OrderRepository {
         addNewOrder (new Order (6, "Sixth Order", 6, this.items));
     }
 
+    private int getNewId() {
+        return counter++;
+    }
+
     public Collection<Order> getAllOrders() {
         return this.orders.values();
     }
@@ -40,6 +45,7 @@ public class OrderRepository {
     }
 
     public Collection<Order> addNewOrder(final Order order) {
+        order.setId(this.getNewId());
         this.orders.put(order.getId(), order);
 
         return this.orders.values();

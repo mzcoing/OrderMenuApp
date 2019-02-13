@@ -25,6 +25,11 @@ public class Menu {
     }
 
     @JsonProperty
+    public void setItems(List<Item> items){
+        this.items = items;
+    }
+
+    @JsonProperty
     public Integer getId() {
 
         return this.id;
@@ -35,10 +40,15 @@ public class Menu {
         return this.name;
     }
 
+    @JsonProperty
     public void setId(final int id) {
         this.id = id;
     }
 
+    @JsonProperty
+    public void setName(final String name) {
+        this.name = name;
+    }
 
 
 

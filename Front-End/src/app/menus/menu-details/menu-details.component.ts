@@ -13,6 +13,7 @@ import { ItemClass } from './../../item.model';
 export class MenuDetailsComponent implements OnInit {
 
   @Input() menu: MenuModel;
+  // @Input() itema: ItemClass;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class MenuDetailsComponent implements OnInit {
 
   menus: MenuModel[];
   items: ItemClass[];
+  item: ItemClass;
 
   ngOnInit(): void {
     this.getMenu();
@@ -35,4 +37,20 @@ export class MenuDetailsComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  // deleteItem(): void {
+  //   this.menuService.deleteItem(this.item)
+  //   .subscribe(item => this.item = item);
+
+  // }
+
+
+
+
+  // save(): void {
+  //   this.menuService.updateMenu(this.menu)
+  //   .subscribe(() => this.goBack());
+  // }
+
+
 }

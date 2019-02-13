@@ -12,7 +12,7 @@
         <li *ngFor = "let item of menu.items">
               
         <span class="items">{{item.name}} costs {{item.price}}</span> 
-        <span class="button"><button class="deletebutton" (click) = "delete(item)">Remove</button></span>
+        <span class="button"><button class="deletebutton" (click) = "deleteItem(item)">Remove</button></span>
     </li>
   </ul>
 

@@ -32,8 +32,16 @@ export class OrderListComponent implements OnInit {
     this.orders = this.orders.filter (o => o !== order);
     this.orderService.deleteOrder(order).subscribe();
   }
-}
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {return;}
+    this.orderService.addOrder({ name } as OrderModel)
+    .subscribe(order => {
+      this.orders.push(order);
+    });
+}
+}
 
 
   

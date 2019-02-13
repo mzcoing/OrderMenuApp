@@ -1,6 +1,8 @@
 package resources;
 
 import com.codahale.metrics.annotation.Timed;
+
+import io.dropwizard.jersey.PATCH;
 import models.Menu;
 import repository.MenuRepository;
 
@@ -46,4 +48,18 @@ public class MenuResource {
     public Collection<Menu> delete(@PathParam("id") final int id) {
         return this.menuRepository.removeMenu(id);
     }
+
+    // @PATCH
+    // @Path("/{id}")
+    // @Timed
+    // public Menu replace(@PathParam("id") final int id, final Menu menu){
+    //     return this.menuRepository.replace(id, menu);
+    // }
+
+    // @PATCH
+    // @Path("/{id}")
+    // @Timed
+    // public Collection<Menu> update(@PathParam("id") final Menu menu){
+    //     return this.menuRepository.updateMenu(menu);
+    // }
 }
