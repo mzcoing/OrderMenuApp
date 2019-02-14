@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ItemClass } from './item.model';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json'})
 };
 
 @Injectable({
@@ -43,13 +43,18 @@ export class MenuService {
     );
   }
 
-  // deleteItem (item: ItemClass): Observable<MenuModel> {
-  //   // const url = `${this.menusUrl}/${id}`;
-  //   return this.http.patch<MenuModel>(this.menusUrl, item, httpOptions)
-  // }
+  patchRemove(menu: MenuModel | number, itemToRemove: ItemClass): Observable<any> { 
+    const name = typeof menu === 'string' ? menu: itemToRemove.name;
+    const id = typeof menu === 'number' ? menu: menu.id;
+    const url = `${this.menusUrl}/remove/${id}/${name}`;
 
-  // updateMenu (menu: MenuModel): Observable<any> {
-  //   return this.http.patch(this.menusUrl, menu, httpOptions).pipe()
-  // }
+    return this.http.patch(url, itemToRemove, httpOptions).pipe ()
+  }
 
+  patchAdd(menu: MenuModel | number, itemToAdd: ItemClass): Observable<any> { 
+    const id = typeof menu === 'number' ? menu: menu.id;
+    const url = `${this.menusUrl}/add/${id}`;
+
+    return this.http.patch(url, itemToAdd, httpOptions).pipe ()
+  }
 }

@@ -21,9 +21,10 @@ export class MenuDetailsComponent implements OnInit {
     private location: Location,
   ) { }
 
-  menus: MenuModel[];
-  items: ItemClass[];
+  menus: MenuModel[] = [];
+  items: ItemClass[] = [];
   item: ItemClass;
+  // item: ItemClass;
 
   ngOnInit(): void {
     this.getMenu();
@@ -38,6 +39,37 @@ export class MenuDetailsComponent implements OnInit {
     this.location.back();
   }
 
+  patchItRemove(item: ItemClass): void {
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.menuService.patchRemove(id, item)
+    .subscribe(item => this.items = item);
+
+  }
+
+  // patchItAdd(item: ItemClass): void {
+
+  //   const id = +this.route.snapshot.paramMap.get('id');
+  //   this.menuService.patchAdd(id, item)
+  //   .subscribe(item => this.items = item);
+
+  // }
+
+  patchItAdd(name: string, price: number){
+    name = name.trim();
+    if (!name) {return;}
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.menuService.patchAdd(id, this.item)
+    //With this ^^ , the value is null, but new element is added to the array. Cannot read property push of undefined. PATCH is triggered on the backend.
+    // this.menuService.patchAdd(id, {name, price} as ItemClass) ----- Three errors, nothing happens
+    .subscribe(item => {
+      this.items.push(item);
+    });
+  }}
+  // }
+    // const id = +this.route.snapshot.paramMap.get('id');
+    // this.menuService.addItem({id, item} as MenuModel)
+    // .subscribe(() => console.log("OK"));
   // deleteItem(): void {
   //   this.menuService.deleteItem(this.item)
   //   .subscribe(item => this.item = item);
@@ -53,4 +85,4 @@ export class MenuDetailsComponent implements OnInit {
   // }
 
 
-}
+

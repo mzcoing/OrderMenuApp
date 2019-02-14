@@ -1,14 +1,18 @@
 package resources;
+import models.*;
 
 import com.codahale.metrics.annotation.Timed;
 
 import io.dropwizard.jersey.PATCH;
+// import io.dropwizard.validation.DurationRange.List;
 import models.Menu;
 import repository.MenuRepository;
+
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
+import java.util.ListIterator;
 
 @Path("/menu")
 @Produces(MediaType.APPLICATION_JSON)
@@ -49,17 +53,30 @@ public class MenuResource {
         return this.menuRepository.removeMenu(id);
     }
 
-    // @PATCH
-    // @Path("/{id}")
-    // @Timed
-    // public Menu replace(@PathParam("id") final int id, final Menu menu){
-    //     return this.menuRepository.replace(id, menu);
-    // }
+    @PATCH
+    @Path("/remove/{menuId}/{itemName}")
+    public void removeMenuItem(
+            @PathParam("menuId") final int menuId,
+            @PathParam("itemName") final String itemName) {
+      final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
 
-    // @PATCH
-    // @Path("/{id}")
-    // @Timed
-    // public Collection<Menu> update(@PathParam("id") final Menu menu){
-    //     return this.menuRepository.updateMenu(menu);
-    // }
+      for (final ListIterator<Item> iterator = items.listIterator(); iterator.hasNext();) {
+         final Item item = iterator.next();
+
+         if (itemName.equals(item.getName())) {
+            iterator.remove();
+            break;
+         }
+      }
+   }
+
+   @PATCH
+   @Path("/add/{menuId}")
+   public void addMenuItem(
+            @PathParam("menuId") final int menuId,
+            final Item item) {  
+      final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
+      items.add(item);
+   }
+
 }

@@ -1,7 +1,12 @@
 package models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+// import javax.xml.bind.annotation.XmlAttribute;
+// import javax.xml.bind.annotation.XmlElement;
+// import javax.xml.bind.annotation.XmlRootElement;
+// import javax.xml.bind.*;
 
+// @XmlRootElement
 public class Item {
 
     private String person;

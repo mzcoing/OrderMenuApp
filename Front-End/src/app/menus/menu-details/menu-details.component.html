@@ -1,7 +1,7 @@
 <div *ngIf="menu">
 
-    <h2>{{menu.name}} details</h2>
-    <div ><span class="idclass">id:  {{menu.id}}</span></div>
+    <h2>{{menu?.name}} details</h2>
+    <div ><span class="idclass">id:  {{menu?.id}}</span></div>
   </div>
   <label>name:
     <input [(ngModel)] = "menu.name"  placeholder="name"> <button (click) = "save()">save</button>
@@ -11,8 +11,8 @@
       <ul>
         <li *ngFor = "let item of menu.items">
               
-        <span class="items">{{item.name}} costs {{item.price}}</span> 
-        <span class="button"><button class="deletebutton" (click) = "deleteItem(item)">Remove</button></span>
+        <span class="items">{{item?.name}} costs {{item?.price}}</span> 
+        <span class="button"><button class="deletebutton" (click) = "patchItRemove(item)">Remove</button></span>
     </li>
   </ul>
 
@@ -23,7 +23,7 @@
       <input #itemName placeholder="What's the name of the item?" onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s the name of the item?'"/><br><br>
       Item's price:
       <input #itemPrice placeholder="What's the price?"onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s the price?'"/><br><br>
-      <span class="addnewbuttontext"><button class="addnewitembutton">Add</button></span>
+      <span class="addnewbuttontext"><button class="addnewitembutton" (click) = "patchItAdd(itemName.value, itemPrice.value)">Add</button></span>
   </label><br>
   <hr>
 

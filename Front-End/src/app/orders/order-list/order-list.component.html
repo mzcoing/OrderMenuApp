@@ -2,7 +2,7 @@
   <ul>
     <li *ngFor="let order of orders"> 
       <a routerLink="/detail/{{order.id}}">
-        <span class="id"> {{order.id}}. </span>  <span class="name">{{order.name}}</span>
+        <span class="id"> {{order?.id}}. </span>  <span class="name">{{order?.name}}</span>
       </a>
         <span class="button"><button class="deletebutton" (click) = "delete(order)">Delete</button></span>
           <br><br>
