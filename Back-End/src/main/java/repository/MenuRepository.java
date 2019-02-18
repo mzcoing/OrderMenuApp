@@ -37,16 +37,6 @@ public class MenuRepository {
     }
 
 
-    // public Collection<Menu> removeItem(final Menu menu){
-    //     menu.setItems(this.getNewList());
-    //     this.menus.put(menu.ge)
-    // }
-
-    // public Menu replace(final int id, final Menu menu){
-    //     return this.menus.replace(id, menu);
-    // }
-
-
     public Collection<Menu> getAllMenus() {
         return this.menus.values();
     }
@@ -67,10 +57,5 @@ public class MenuRepository {
         this.menus.remove(id);
         return this.menus.values();
     }
-    // public Collection<Menu> updateMenu(final Menu menu){
-    //     menu.setName(this.getNewName());
-    //     return this.menus.values();
-        
-    // }
 
 }

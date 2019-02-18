@@ -23,7 +23,7 @@
       <input #itemName placeholder="What's the name of the item?" onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s the name of the item?'"/><br><br>
       Item's price:
       <input #itemPrice placeholder="What's the price?"onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s the price?'"/><br><br>
-      <span class="addnewbuttontext"><button class="addnewitembutton" (click) = "patchItAdd(itemName.value, itemPrice.value)">Add</button></span>
+      <span class="addnewbuttontext"><button class="addnewitembutton" (click) = "patchItAdd(menu.id, itemName.value, itemPrice.value)">Add</button></span>
   </label><br>
   <hr>
 
