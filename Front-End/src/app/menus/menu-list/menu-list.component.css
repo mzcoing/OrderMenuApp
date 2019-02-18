@@ -47,7 +47,7 @@
     background-color: #c4efc4;
     border-radius: 10px;
     height: 40px;
-    width: 30%;
+    width: 10%;
   }
   
   .addnewbutton:hover{
@@ -65,3 +65,14 @@
   .name:hover {
     font-weight: bolder;
   }
+
+  .all {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  

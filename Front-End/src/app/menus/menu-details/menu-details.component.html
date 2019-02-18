@@ -1,3 +1,4 @@
+<div class="all">
 <div *ngIf="menu">
 
     <h2>{{menu?.name}} details</h2>
@@ -7,7 +8,7 @@
     <input [(ngModel)] = "menu.name"  placeholder="name"> <button (click) = "save()">save</button>
   </label>
 
-  <h2>Available Items: </h2>
+  <h2>Available Items </h2>
       <ul>
         <li *ngFor = "let item of menu.items">
               
@@ -28,3 +29,4 @@
   <hr>
 
   <button class="btn btn-info"(click)="goBack()">Go Back</button>
+</div>

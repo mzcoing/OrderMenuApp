@@ -1,4 +1,4 @@
-
+<div class="all">
 <h1>Menus</h1><br>
   <ul>
     <li *ngFor="let menu of menus">
@@ -15,4 +15,5 @@
       <input #menuName />
   </label><br>
     <span class="addnewbuttontext"><button class="addnewbutton" (click)="add(menuName.value); menuName.value=''">Add New Menu</button></span>
+</div>
 </div>

@@ -44,8 +44,4 @@ export class OrderListComponent implements OnInit {
     });
   }
 
-  // setUsername(){
-  //   localStorage.setItem('username', 'user1');
-  // }
-
 }
