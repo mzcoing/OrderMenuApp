@@ -16,7 +16,7 @@ public class Config extends Configuration {
         // Configure CORS parameters
         cors.setInitParameter("allowedOrigins", "*");
         cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
-        cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,PUSH,POST,DELETE,HEAD");
+        cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,PUSH,PATCH,POST,DELETE,HEAD");
     
         // Add URL mapping
         cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");

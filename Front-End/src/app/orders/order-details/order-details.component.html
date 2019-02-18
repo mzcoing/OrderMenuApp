@@ -11,7 +11,7 @@
           <li *ngFor="let item of order.items"><span>
           {{item.person}} ordered {{item.quantity}} {{item.name}} 
             <br> 
-          The price of this item is: <span class="itemprice">{{item.price}}</span> </span><span class="removebuttons"><button class="x">X</button></span><span class="minusonebtn"><button class="x">-1</button></span><hr></li></ul></div>
+          The price of this item is: <span class="itemprice">{{item.price}}</span> </span><span class="removebuttons"><button class="x" (click) = "patchItRemove(item)">X</button></span><span class="minusonebtn"><button class="x">-1</button></span><hr></li></ul></div>
 
           <span class="name">The total price is: <span class="total">{{getTotal()}}</span></span>
 
@@ -19,6 +19,11 @@
           <hr>
           <div class="bottommargin"><button class="btn btn-info"(click)="goBack()">Go Back</button></div>
         </div>
+        <label class="forma">
+          Please enter your name:
+          <input #userName placeholder="What's your name?" onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s your name?'"/><br>
+          <span class="addnewbuttontext"><button class="addnewbutton" (click)= "setUsername(userName.value);">Submit</button></span>
+      </label>
       </div>
 
   <div class="right">
@@ -30,11 +35,12 @@
         <ul class = "menulista" *ngFor="let menu of menus">
           <button class="individualmenus"><span class="id"> {{menu.id}}.</span>   <span class="name">{{menu.name}}</span></button>
         <li class = "lista" *ngFor="let item of menu.items">
-          <a><span class="names">{{item.name}} - {{item.price}}</span></a>
+          <a><span class="names" (click) = "patchItAdd(menu.id, item.name, item.price)">{{item.name}} - {{item.price}}</span></a>
         </li>
           <br><br>
         </ul>
       </li>
       </ul>
   </div>
+  
 </div>

@@ -14,5 +14,11 @@
       Name of the order:
       <input #orderName/>
   </label><br>
-         <span class="addnewbuttontext"><button class="addnewbutton" (click)="add(orderName.value); orderName.value=''"> Add New Order</button></span>
+         <span class="addnewbuttontext"><button class="addnewbutton" (click)="add(orderName.value); orderName.value=''"> Add New Order</button></span><br><br>
+
+         <label class="forma">
+          Please enter your name:
+          <input #userName placeholder="What's your name?" onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s your name?'"/><br>
+          <span class="addnewbuttontext"><button class="addnewbutton" (click)= "setUsername(userName.value);">Submit</button></span>
+      </label>
 </div>

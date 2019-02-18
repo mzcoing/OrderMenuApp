@@ -23,23 +23,20 @@ export class OrderDetailsComponent implements OnInit {
     private location: Location
   ) { }
 
-  items: ItemClass[];
+  items: ItemClass[] = [];
   item: ItemClass;
   totalamount: number;
   selectedMenu: MenuModel;
-  menus: MenuModel[];
-  orders: OrderModel[];
-  ordera: OrderModel
-
-  printRandom(){
-    return this.order.items.length;
-  }
+  menus: MenuModel[] = [];
+  orders: OrderModel[] = [];
+  menu: MenuModel;
+  public username: string;
 
   getTotal(){
     let total = 0;
     for (var i = 0; i<this.order.items.length; i++) {
-      if (this.item[i].price){
-        total+= this.item[i].price*this.item[i].quantity;
+      if (this.order.items[i].price){
+        total+= this.order.items[i].price*this.order.items[i].quantity;
         this.totalamount = total;
       }
     }
@@ -49,8 +46,8 @@ export class OrderDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getOrder();
     this.getMenus();
+    
   }
-
   getOrder(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.orderService.getOrder(id)
@@ -69,5 +66,33 @@ export class OrderDetailsComponent implements OnInit {
     this.menuService.getMenus()
     .subscribe(menus => this.menus = menus);
   }
+
+  patchItRemove(item: ItemClass): void {
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.orderService.patchRemove(id, item)
+    .subscribe(item => this.items = item);
+
+  }
+
+  setUsername(username){
+   localStorage.setItem('username', username);
+   this.username = username;
+   return this.username;
+   
+  }
+  
+
+  patchItAdd(menuId: number, name: string, price: number){
+    // quantity = this.item.quantity;
+    // const trimmedName = name.trim();
+    const newItem = new ItemClass(localStorage.getItem('username'), name, 1, price)
+    this.orderService.patchAdd(menuId, newItem).subscribe(item => {
+       this.items.push(item);
+      //  quantity++;
+    });
+  }
+
+
 
 }

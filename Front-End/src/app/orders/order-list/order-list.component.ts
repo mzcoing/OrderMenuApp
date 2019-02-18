@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderModel } from './../../order.model';
 import { OrderService } from './../../order.service';
+import { ItemClass } from 'src/app/item.model';
 
 @Component({
   selector: 'app-order-list',
@@ -12,6 +13,7 @@ export class OrderListComponent implements OnInit {
   selectedOrder: OrderModel;
 
   orders: OrderModel[];
+  item: ItemClass;
 
   constructor(private orderService: OrderService) { }
 
@@ -40,15 +42,10 @@ export class OrderListComponent implements OnInit {
     .subscribe(order => {
       this.orders.push(order);
     });
-}
-}
+  }
 
-
-  
-
-    
-  // onSelect(order: OrderListComponent):void {
-
-  //   this.selectedOrder = order;
+  // setUsername(){
+  //   localStorage.setItem('username', 'user1');
   // }
 
+}

@@ -73,8 +73,7 @@ public class MenuResource {
    @PATCH
    @Path("/add/{menuId}")
    public void addMenuItem(
-            @PathParam("menuId") final int menuId,
-            final Item item) {  
+            @PathParam("menuId") final int menuId, final Item item) {  
       final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
       items.add(item);
    }
