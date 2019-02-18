@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /Back-End/build
+/Back-End/bin
 # dependencies
 /Front-End/node_modules
 /Back-End/.gradle
