@@ -10,6 +10,7 @@ import { MenuListComponent } from './menus/menu-list/menu-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrderDetailsComponent } from './orders/order-details/order-details.component';
 import { MenuDetailsComponent } from './menus/menu-details/menu-details.component';
+import { HomepageComponent } from './Homepage/homepage/homepage.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MenuDetailsComponent } from './menus/menu-details/menu-details.componen
     DashboardComponent,
     OrderDetailsComponent,
     MenuDetailsComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,

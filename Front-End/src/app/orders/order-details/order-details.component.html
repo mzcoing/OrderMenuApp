@@ -5,7 +5,7 @@
         <div><span class="id">id: {{order.id}}</span></div>
       <div>
         <label><span class="name">Name:</span>
-          <input [(ngModel)] = "order.name" placeholder="Order Name"> <button (click) = "save()">save</button>
+          <input [(ngModel)] = "order.name" placeholder="Order Name"><button (click) = "save()">save</button>
         </label><br><br>
         <div> <ul>
           <li *ngFor="let item of order.items"><span>
@@ -19,11 +19,6 @@
           <hr>
           <div class="bottommargin"><button class="btn btn-info"(click)="goBack()">Go Back</button></div>
         </div>
-        <label class="forma">
-          Please enter your name:
-          <input #userName placeholder="What's your name?" onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s your name?'"/><br>
-          <span class="addnewbuttontext"><button class="addnewbutton" (click)= "setUsername(userName.value);">Submit</button></span>
-      </label>
       </div>
 
   <div class="right">

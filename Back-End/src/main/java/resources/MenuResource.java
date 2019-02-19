@@ -55,7 +55,7 @@ public class MenuResource {
 
     @PATCH
     @Path("/remove/{menuId}/{itemName}")
-    public void removeMenuItem(
+    public java.util.List<Item> removeMenuItem(
             @PathParam("menuId") final int menuId,
             @PathParam("itemName") final String itemName) {
       final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
@@ -65,18 +65,30 @@ public class MenuResource {
 
          if (itemName.equals(item.getName())) {
             iterator.remove();
+            
             break;
          }
       }
+      return this.menuRepository.get(menuId).getItems();
    }
 
-   @PATCH
-   @Path("/add/{menuId}")
-   public void addMenuItem(
-            @PathParam("menuId") final int menuId, final Item item) {  
-      final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
-      items.add(item);
-   }
+//    @PATCH
+//    @Path("/add/{menuId}")
+//    public void addMenuItem(
+//             @PathParam("menuId") final int menuId, final Item item) {  
+//       final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
+//       items.add(item);
+//    }
+
+        @PATCH
+        @Path("/add/{menuId}")
+        public java.util.List<Item> addMenuItem(
+        @PathParam("menuId") final int menuId, final Item item) { 
+        final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
+        items.add(item);
+
+        return this.menuRepository.get(menuId).getItems();
+        }
 
    @PATCH
    @Path("/update/{id}")

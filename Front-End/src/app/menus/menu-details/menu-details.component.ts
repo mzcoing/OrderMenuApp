@@ -58,7 +58,8 @@ patchItAdd(menuId: number, name: string, price: number){
 
 save(){
   this.menuService.renameMenu(this.menu.name, this.menu)
-  .subscribe(name => this.menu.name = name);
+  .subscribe(name => this.menu.name = name)
+  this.goBack();
 }
 }
 

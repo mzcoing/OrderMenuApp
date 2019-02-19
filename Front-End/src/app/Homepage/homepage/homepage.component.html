@@ -1,0 +1,8 @@
+<div class="all"><div class="welcome"><h1>WELCOME!</h1></div><br><br>
+
+<label class="nameform">
+  Please enter your name:
+  <input #userName placeholder="What's your name?" onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s your name?'"/><br><br>
+  <a routerLink="/orders"><span class="namespan"><button class="confirm" (click)= "setUsername(userName.value);">Confirm</button></span></a>
+</label>
+</div>

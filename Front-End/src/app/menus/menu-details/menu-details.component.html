@@ -1,9 +1,9 @@
-<div class="all">
-<div *ngIf="menu">
+<div class="all"  *ngIf="menu">
+
 
     <h2>{{menu?.name}} details</h2>
     <div ><span class="idclass">id:  {{menu?.id}}</span></div>
-  </div>
+  
   <label>name:
     <input [(ngModel)] = "menu.name"  placeholder="name"> <button (click) = "save()">save</button>
   </label>

@@ -30,7 +30,6 @@ export class OrderDetailsComponent implements OnInit {
   menus: MenuModel[] = [];
   orders: OrderModel[] = [];
   menu: MenuModel;
-  public username: string;
 
   getTotal(){
     let total = 0;
@@ -75,12 +74,6 @@ export class OrderDetailsComponent implements OnInit {
 
   }
 
-  setUsername(username){
-   localStorage.setItem('username', username);
-   this.username = username;
-   return this.username;
-   
-  }
   
 
   patchItAdd(menuId: number, name: string, price: number){
@@ -93,6 +86,7 @@ export class OrderDetailsComponent implements OnInit {
   save(){
     this.orderService.renameOrder(this.order.name, this.order)
     .subscribe(name => this.order.name = name);
+    this.goBack();
   }
 
 

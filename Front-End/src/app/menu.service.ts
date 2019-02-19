@@ -48,7 +48,7 @@ export class MenuService {
     const id = typeof menu === 'number' ? menu: menu.id;
     const url = `${this.menusUrl}/remove/${id}/${name}`;
 
-    return this.http.patch(url, itemToRemove, httpOptions).pipe ()
+    return this.http.patch<any>(url, itemToRemove, httpOptions).pipe ()
   }
 
   patchAdd(menuId: number, itemToAdd: ItemClass): Observable<any> { 

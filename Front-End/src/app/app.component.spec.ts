@@ -11,6 +11,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MenuService } from './menu.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -31,7 +32,10 @@ describe('AppComponent', () => {
         AppRoutingModule,
         FormsModule,
         HttpClientModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+      ],
+      providers: [
+        MenuService
       ]
     }).compileComponents();
     
