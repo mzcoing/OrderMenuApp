@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { OrderModel } from './order.model';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ItemClass } from './item.model';
 

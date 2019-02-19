@@ -84,12 +84,9 @@ export class OrderDetailsComponent implements OnInit {
   
 
   patchItAdd(menuId: number, name: string, price: number){
-    // quantity = this.item.quantity;
-    // const trimmedName = name.trim();
     const newItem = new ItemClass(localStorage.getItem('username'), name, 1, price)
     this.orderService.patchAdd(menuId, newItem).subscribe(item => {
        this.items.push(item);
-      //  quantity++;
     });
   }
 

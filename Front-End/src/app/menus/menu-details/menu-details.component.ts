@@ -55,5 +55,10 @@ patchItAdd(menuId: number, name: string, price: number){
      this.items.push(item);
   });
 }
+
+// save(){
+//   this.menuService.renameMenu(this.menu.name, this.menu)
+//   .subscribe(name => this.menu.name = name);
+// }
 }
 

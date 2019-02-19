@@ -47,8 +47,10 @@ h1 {
   background-color: #c4efc4;
   border-radius: 10px;
   height: 40px;
-  width: 30%;
+  width: 8%;
 }
+
+
 
 .addnewbutton:hover{
   background-color: #d2f7d2;
@@ -69,3 +71,11 @@ h1 {
 .inside {
   display: inline-block;
 } */
+.all {
+  text-align: center;
+  margin: 0 auto;
+}
+
+li {
+  list-style: none;
+}

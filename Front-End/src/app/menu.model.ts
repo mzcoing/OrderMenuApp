@@ -14,6 +14,4 @@ items: ItemClass[];
          this.items = items;
 
     }
-
-
 }

@@ -8,6 +8,11 @@
             <li><a routerLink="/orders"><span class="navitems">Orders</span></a></li>
             <li><a routerLink="/menus"><span class="navitems">Menus</span></a></li>
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href=""><span class="username">{{username}}</span></a></li>
+            <li><a href=""><span class="logout" (click)="logout()">Log Out</span></a></li>
+          </ul>
     </div>
   </div>
 </nav>

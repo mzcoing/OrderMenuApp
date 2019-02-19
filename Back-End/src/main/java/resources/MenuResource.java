@@ -78,4 +78,12 @@ public class MenuResource {
       items.add(item);
    }
 
+//    @PATCH
+//    @Path("/update/{id}")
+//    public void updateName(
+//        @PathParam("id") final int id, final String menuName){
+//         final Menu menu = this.menuRepository.get(id);
+//         menu.setName(menuName);
+//        }
+   
 }

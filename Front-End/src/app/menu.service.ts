@@ -56,4 +56,10 @@ export class MenuService {
 
     return this.http.patch(url, itemToAdd, httpOptions).pipe ()
   }
+
+  // renameMenu (name: String, menu: MenuModel): Observable<any> {
+  //   const id = typeof menu === 'number' ? menu: menu.id;
+  //   const url = `${this.menusUrl}/update/${id}`;
+  //   return this.http.patch(url, name, httpOptions);
+  // }
 }
