@@ -74,4 +74,11 @@ public class OrderResource {
       final java.util.List<Item> items = this.orderRepository.get(orderId).getItems();
       items.add(item);
    }
+   @PATCH
+   @Path("/update/{id}")
+   public void updateName(
+       @PathParam("id") final int id, final String orderName){
+        this.orderRepository.get(id).setName(orderName);
+
+       }
 }

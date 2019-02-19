@@ -90,6 +90,11 @@ export class OrderDetailsComponent implements OnInit {
     });
   }
 
+  save(){
+    this.orderService.renameOrder(this.order.name, this.order)
+    .subscribe(name => this.order.name = name);
+  }
+
 
 
 }

@@ -59,4 +59,10 @@ getOrder(id: number): Observable<OrderModel>{
     return this.http.patch(url, itemToAdd, httpOptions).pipe ()
   }
 
+  renameOrder (name: String, order: OrderModel): Observable<any> {
+    const id = typeof order === 'number' ? order: order.id;
+    const url = `${this.ordersUrl}/update/${id}`;
+    return this.http.patch(url, name, httpOptions);
+  }
+
 }

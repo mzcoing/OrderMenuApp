@@ -5,7 +5,7 @@
         <div><span class="id">id: {{order.id}}</span></div>
       <div>
         <label><span class="name">Name:</span>
-          <input [(ngModel)] = "order.name" placeholder="Order Name">
+          <input [(ngModel)] = "order.name" placeholder="Order Name"> <button (click) = "save()">save</button>
         </label><br><br>
         <div> <ul>
           <li *ngFor="let item of order.items"><span>
