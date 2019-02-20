@@ -71,6 +71,7 @@ export class OrderDetailsComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.orderService.patchRemove(id, item)
     .subscribe(item => this.items = item);
+    window.location.reload();
 
   }
 
@@ -80,6 +81,7 @@ export class OrderDetailsComponent implements OnInit {
     const newItem = new ItemClass(localStorage.getItem('username'), name, 1, price)
     this.orderService.patchAdd(menuId, newItem).subscribe(item => {
        this.items.push(item);
+       window.location.reload();
     });
   }
 

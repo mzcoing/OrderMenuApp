@@ -35,6 +35,7 @@ export class MenuListComponent implements OnInit {
     this.menuService.addMenu({ name } as MenuModel)
     .subscribe(menu => {
       this.menus.push(menu);
+      window.location.reload();
     });
   }
 

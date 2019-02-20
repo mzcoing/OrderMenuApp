@@ -42,6 +42,7 @@ export class MenuDetailsComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.menuService.patchRemove(id, item)
     .subscribe(item => this.items = item);
+    window.location.reload();
 
   }
 
@@ -53,6 +54,7 @@ patchItAdd(menuId: number, name: string, price: number){
   const newItem = new ItemClass("", trimmedName, 0, price)
   this.menuService.patchAdd(menuId, newItem).subscribe(item => {
      this.items.push(item);
+     window.location.reload();
   });
 }
 
