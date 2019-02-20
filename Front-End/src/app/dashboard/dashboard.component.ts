@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   username = localStorage.getItem('username');
 
   logout(){
-    localStorage.removeItem('username');
+    localStorage.setItem('username', "");
+    window.location.reload();
   }
 }

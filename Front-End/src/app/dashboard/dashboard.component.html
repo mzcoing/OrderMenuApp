@@ -12,7 +12,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a><span class="username">{{username}}</span></a></li>
             
-            <li *ngIf = "username"><a href=""><span class="logout" (click)="logout()">Log Out</span></a></li>
+            <li *ngIf = "username"><a routerLink="/home"><span class="logout" (click)="logout()">Log Out</span></a></li>
             <li *ngIf = "!username"><a routerLink="/home"><span class="logout">Log In</span></a></li>
           </ul>
     </div>

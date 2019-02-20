@@ -7,18 +7,20 @@ import { Component, OnInit } from '@angular/core';
 export class HomepageComponent implements OnInit {
 
   constructor() { }
-  public username: string;
+  // public username: string;
   ngOnInit() {
+    localStorage.getItem('username');
   }
+  username = localStorage.getItem('username');
   logout(){
-    localStorage.removeItem('username');
+    localStorage.setItem('username', "");
     window.location.reload();
   }
   setUsername(username){
     localStorage.setItem('username', username);
     this.username = username.trim();
-    window.location.reload();
     if (username === ""){this.logout();}
+    window.location.reload();
     return this.username;
     
    }
