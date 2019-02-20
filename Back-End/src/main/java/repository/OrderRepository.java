@@ -45,6 +45,8 @@ public class OrderRepository {
     }
 
     public Collection<Order> addNewOrder(final Order order) {
+
+        order.setItems(items);
         order.setId(this.getNewId());
         this.orders.put(order.getId(), order);
 

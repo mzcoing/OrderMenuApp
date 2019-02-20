@@ -47,4 +47,9 @@ public class Order {
         this.name = name;
     }
 
+    @JsonProperty
+    public void setItems(List<Item> items){
+        this.items = items;
+    }
+
 }

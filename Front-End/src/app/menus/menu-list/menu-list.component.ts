@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuModel } from './../../menu.model';
 import { MenuService } from './../../menu.service';
+import { ItemClass } from 'src/app/item.model';
 
 
 @Component({

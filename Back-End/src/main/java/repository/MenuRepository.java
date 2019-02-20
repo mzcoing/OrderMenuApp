@@ -47,6 +47,7 @@ public class MenuRepository {
  
     public Collection<Menu> addNewMenu(final Menu menu) {
 
+        menu.setItems(items);
         menu.setId(this.getNewId());
         this.menus.put(menu.getId(), menu);
         return this.menus.values();
