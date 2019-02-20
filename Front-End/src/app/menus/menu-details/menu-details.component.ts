@@ -54,7 +54,7 @@ patchItAdd(menuId: number, name: string, price: number){
   const newItem = new ItemClass("", trimmedName, 0, price)
   this.menuService.patchAdd(menuId, newItem).subscribe(item => {
      this.items.push(item);
-     window.location.reload();
+     this.getMenu();
   });
 }
 

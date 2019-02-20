@@ -1,6 +1,4 @@
-<div *ngIf = "username">Hello {{username}}</div>
-
-    <div class="all"><div class="welcome"><h1>WELCOME!</h1></div><br><br>
+<div class="all"><div class="welcome"><h1>WELCOME!</h1></div><br><br>
     <label *ngIf = "!username" class="nameform">
       Please enter your name:
       <input #userName placeholder="What's your name?" onfocus="this.placeholder =''" onblur="this.placeholder = 'What\'s your name?'"/><br><br>
@@ -12,4 +10,4 @@
       </span>
     </a>
     </label>
-    </div>
+</div>

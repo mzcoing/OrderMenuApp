@@ -41,7 +41,7 @@ export class OrderListComponent implements OnInit {
     this.orderService.addOrder({ name } as OrderModel)
     .subscribe(order => {
       this.orders.push(order);
-      window.location.reload();
+      this.getOrders();
     });
   }
 
