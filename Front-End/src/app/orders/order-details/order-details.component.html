@@ -11,7 +11,7 @@
           <li *ngFor="let item of order.items"><span>
           {{item.person}} ordered {{item.quantity}} {{item.name}} 
             <br> 
-          The price of this item is: <span class="itemprice">{{item.price}}</span> </span><span class="removebuttons"><button class="x" (click) = "patchItRemove(item)">X</button></span><span class="minusonebtn"><button class="x">-1</button></span><hr></li></ul></div>
+          The price of this item is: <span class="itemprice">{{item.price}}</span> </span><span class="removebuttons"><button class="x" (click) = "patchItRemove(item)">X</button></span><hr></li></ul></div>
 
           <span class="name">The total price is: <span class="total">{{getTotal()}}</span></span>
 

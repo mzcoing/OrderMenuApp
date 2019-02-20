@@ -52,7 +52,7 @@ public class OrderResource {
 
     @PATCH
     @Path("/remove/{orderId}/{itemName}")
-    public void removeOrderItem(
+    public java.util.List<Item> removeOrderItem(
             @PathParam("orderId") final int orderId,
             @PathParam("itemName") final String itemName) {
       final java.util.List<Item> items = this.orderRepository.get(orderId).getItems();
@@ -65,14 +65,19 @@ public class OrderResource {
             break;
          }
       }
+      return this.orderRepository.get(orderId).getItems();
+
    }
 
    @PATCH
    @Path("/add/{orderId}")
-   public void addOrderItem(
+   public java.util.List<Item> addOrderItem(
             @PathParam("orderId") final int orderId, final Item item) {  
       final java.util.List<Item> items = this.orderRepository.get(orderId).getItems();
       items.add(item);
+
+      return this.orderRepository.get(orderId).getItems();
+      
    }
    @PATCH
    @Path("/update/{id}")

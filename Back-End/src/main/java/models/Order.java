@@ -52,4 +52,9 @@ public class Order {
         this.items = items;
     }
 
+    @JsonProperty
+    public void setMenuId(final int menuid){
+        this.menuid = menuid;
+    }
+
 }

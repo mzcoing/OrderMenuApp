@@ -17,18 +17,17 @@ public class MenuRepository {
 
     public MenuRepository() {
         this.menus = new HashMap<>();
-        for (int i=1; i<9; i++) {
+        for (int i=0; i<2; i++) {
             Item item = new Item("Item " + i, i+200);
             this.items.add(item);
         }
 
-        addNewMenu(new Menu(1, "First Menu", this.items));
-        addNewMenu(new Menu(2, "Second Menu", this.items));
-        addNewMenu(new Menu(3, "Third Menu", this.items));
-        addNewMenu(new Menu(4, "Fourth Menu", this.items));
-        addNewMenu(new Menu(5, "Fifth Menu", this.items));
-        addNewMenu(new Menu(6, "Sixth Menu", this.items));
-        addNewMenu(new Menu(7, "Seventh Menu", this.items));
+        addNewMenu(new Menu(0, "First Menu", this.items));
+        addNewMenu(new Menu(1, "Second Menu", this.items));
+        addNewMenu(new Menu(2, "Third Menu", this.items));
+        addNewMenu(new Menu(3, "Fourth Menu", this.items));
+        addNewMenu(new Menu(4, "Fifth Menu", this.items));
+        addNewMenu(new Menu(5, "Sixth Menu", this.items));
        
     }
  
