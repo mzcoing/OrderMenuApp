@@ -1,12 +1,13 @@
 h2 {
     font-family: Arial, fantasy;
-    color: #556b2f;
+    color: darkorange;
     font-size: 300%;
     font-weight:bold;
-}
+    cursor: default;
+  }
 span {
     font-size:140%;
-    color: #556b2f;
+    color: brown;
     font-weight:bolder;
 }
 
@@ -86,6 +87,10 @@ ul {
       opacity: 0.75;
   }
 
+  .name {
+      margin-left: 30px;
+  }
+
   .names:hover {
       opacity:1;
       filter: brightness(75%);
@@ -128,4 +133,17 @@ ul {
 
 .bottommargin{
     margin-bottom:50px;
+    margin-left: 30px;
+}
+
+#save {
+    margin-left: 20px;
+    background-color:transparent;
+    border-radius: 5px;
+    border-color: orange;
+    opacity: 0.8;
+}
+
+#save:hover {
+    opacity: 1;
 }

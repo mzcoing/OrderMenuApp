@@ -1,4 +1,4 @@
-.FOA {
+/* .FOA {
     color: #696969;
     font-weight: bold;
     font-size: 150%;
@@ -38,4 +38,52 @@ nav{
 
 .logout:hover {
     opacity:1;
-}
+} */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #FFB775;
+  }
+
+  .navleft {
+      font-size: 20px;
+      margin-left: 5%;
+      margin-top: 2%;
+      text-decoration: none;
+      border-bottom: 3px solid orange;
+  }
+
+  .navright {
+      margin-top: 1%;
+      margin-right: 3%;
+      font-size: 15px;
+
+  }
+
+  .username {
+    margin-top: 1%;
+    margin-right: 3%;
+    font-size: 15px;
+    text-decoration: none;
+    border: 2px solid orange;
+    border-radius: 8px;
+    cursor: default;
+  }

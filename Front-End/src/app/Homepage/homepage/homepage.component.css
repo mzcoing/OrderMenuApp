@@ -10,3 +10,20 @@
     margin-left: 50px;
     font-weight: bold;
 }
+
+h1, h3 {
+    color: brown;
+}
+
+.myorders{
+    background-color: transparent;
+    opacity: 0.9;
+    border-radius: 10px;
+    height: 40px;
+    color: white;
+}
+
+.myorders:hover{
+    background-color: orange;
+    font-weight: bold;
+  }

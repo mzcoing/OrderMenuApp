@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<!-- <nav class="navbar navbar-default">
     <div class="container-fluid">
        <div class="navbar-header">
            <a routerLink="/home" class="navbar-brand"><span class="FOA">FoodOrderingApp</span></a>
@@ -17,4 +17,13 @@
           </ul>
     </div>
   </div>
-</nav>
+</nav> -->
+<ul>
+    <li class="navleft"><a routerLink="/home">Home</a></li>
+    <li class="navleft"><a routerLink="/menus">Menus</a></li>
+    <li class="navleft"><a routerLink="/orders">Orders</a></li>
+   
+    <li class="navright" *ngIf = "username" (click) = "logout()" style="float:right"><a routerLink="/home">Log Out</a></li>
+    <li class="navright" *ngIf = "!username" style="float:right"><a routerLink="/home">Log In</a></li>
+    <li class = "username" style="float:right"><a>{{username}}</a></li>
+  </ul>

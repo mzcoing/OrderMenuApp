@@ -1,9 +1,17 @@
-.items {
+.itemname {
     font-size:125%;
+    color: brown;
 }
+
+#itemprice {
+  font-size:130%;
+  color: brown;
+  font-weight: bold;
+}
+
 h2 {
   font-family: Arial, fantasy;
-  color: #556b2f;
+  color: darkorange;
   font-size: 300%;
   font-weight:bold;
   cursor: default;
@@ -13,34 +21,35 @@ h2 {
   }
 
   .addnewitembutton {
-    background-color: #c4efc4;
-    width: 30%;
-    height: 30px;
+    background-color: transparent;
+    opacity: 0.9;
     border-radius: 10px;
+    width: 100px;
   }
 
   .addnewitembutton:hover{
-    background-color: #d2f7d2;
-  }
-
-  .deletebutton {
-    background-color: lightcyan;
-    border-radius: 7px;
-    font-size: 12px;
-    
-  }
-
-  .deletebutton:hover {
-    background-color: #cbeded;
+    background-color: orange;
   }
 
   .button{
-    font-size: 109%;
-    margin-left: 10px;
+    font-size: 85%;
+    margin-left: 20px;
   }
   
   .button:hover{
     font-weight:bold;
+  }
+  
+  .deletebutton:hover {
+    background-color: #ffafaf;
+  }
+
+  .deletebutton {
+    /* background-color: lightcyan; */
+    background-color: transparent;
+    border-radius: 7px;
+    height: 25px;
+    
   }
 
   li {
@@ -50,10 +59,19 @@ h2 {
   h3 {
     font-size: 200%;
     font-weight: bolder;
-    color: #556b2f;
+    color: darkorange;
+    opacity: 0.9;
   }
 
   .all {
     text-align: center;
     margin: 0 auto;
   }
+
+  .forma {
+    color: brown;
+    opacity: 0.7;
+  }
+    input {
+      color: blue;
+    }

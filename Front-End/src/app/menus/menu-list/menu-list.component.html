@@ -4,7 +4,7 @@
     <li *ngFor="let menu of menus">
       <a routerLink="/details/{{menu.id}}">
         <span class="id"> {{menu.id}}. </span>   <span class="name">{{menu.name}}</span></a>
-        <span class="button"><button class="deletebutton" title="delete menu" (click) = "delete(menu)">Delete</button></span>
+        <span class="button"><button class="deletebutton" (click) = "delete(menu)">Delete</button></span>
           <br><br>
     </li>
   </ul>
