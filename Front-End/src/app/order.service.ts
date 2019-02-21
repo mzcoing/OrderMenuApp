@@ -50,13 +50,13 @@ getOrder(id: number): Observable<OrderModel>{
     const id = typeof order === 'number' ? order: order.id;
     const url = `${this.ordersUrl}/remove/${id}/${name}`;
 
-    return this.http.patch(url, itemToRemove, httpOptions).pipe ()
+    return this.http.patch(url, itemToRemove, httpOptions).pipe ();
   }
 
   patchAdd(orderId: number, itemToAdd: ItemClass): Observable<any> { 
     const url = `${this.ordersUrl}/add/${orderId}`;
 
-    return this.http.patch(url, itemToAdd, httpOptions).pipe ()
+    return this.http.patch(url, itemToAdd, httpOptions).pipe ();
   }
 
   renameOrder (name: String, order: OrderModel): Observable<any> {

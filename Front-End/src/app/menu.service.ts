@@ -50,13 +50,13 @@ export class MenuService {
     const id = typeof menu === 'number' ? menu: menu.id;
     const url = `${this.menusUrl}/remove/${id}/${name}`;
 
-    return this.http.patch<any>(url, itemToRemove, httpOptions).pipe ()
+    return this.http.patch<any>(url, itemToRemove, httpOptions).pipe ();
   }
 
   patchAdd(menuId: number, itemToAdd: ItemClass): Observable<any> { 
     const url = `${this.menusUrl}/add/${menuId}`;
 
-    return this.http.patch(url, itemToAdd, httpOptions).pipe ()
+    return this.http.patch(url, itemToAdd, httpOptions).pipe ();
   }
 
   renameMenu (name: String, menu: MenuModel): Observable<any> {

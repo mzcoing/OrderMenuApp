@@ -4,14 +4,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuListComponent } from './menus/menu-list/menu-list.component';
 import { MenuDetailsComponent } from './menus/menu-details/menu-details.component';
 import { MenusComponent } from './menus/menus.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { OrderDetailsComponent } from './orders/order-details/order-details.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
-import { OrdersComponent } from './orders/orders.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuService } from './menu.service';
+import { HomepageComponent } from './Homepage/homepage/homepage.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderService } from './order.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -21,10 +23,9 @@ describe('AppComponent', () => {
         DashboardComponent,
         MenuListComponent,
         MenuDetailsComponent,
-        MenusComponent,
         OrderDetailsComponent,
         OrderListComponent,
-        OrdersComponent
+        routingComponents
 
       ],
       imports: [
@@ -32,10 +33,10 @@ describe('AppComponent', () => {
         AppRoutingModule,
         FormsModule,
         HttpClientModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule
       ],
       providers: [
-        MenuService
+        AppComponent
       ]
     }).compileComponents();
     

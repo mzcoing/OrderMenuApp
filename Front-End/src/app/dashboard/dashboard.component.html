@@ -25,5 +25,5 @@
    
     <li class="navright" *ngIf = "username" (click) = "logout()" style="float:right"><a routerLink="/home">Log Out</a></li>
     <li class="navright" *ngIf = "!username" style="float:right"><a routerLink="/home">Log In</a></li>
-    <li class = "username" style="float:right"><a>{{username}}</a></li>
+    <li class = "username" *ngIf = "username" style="float:right"><a>{{username}}</a></li>
   </ul>
