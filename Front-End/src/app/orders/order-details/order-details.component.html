@@ -30,7 +30,7 @@
         <ul class = "menulista" *ngFor="let menu of menus">
           <button class="individualmenus"><span class="id"> {{menu.id}}.</span>   <span class="name">{{menu.name}}</span></button>
         <li class = "lista" *ngFor="let item of menu.items">
-          <a><span class="names" (click) = "patchItAdd(menu.id, item.name, item.price)">{{item.name}} - {{item.price}}</span></a>
+          <a><span class="names" (click) = "patchItAdd(order.id, item.name, item.price)">{{item.name}} - {{item.price}}</span></a>
         </li>
           <br><br>
         </ul>

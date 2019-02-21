@@ -77,9 +77,9 @@ export class OrderDetailsComponent implements OnInit {
 
   
 
-  patchItAdd(menuId: number, name: string, price: number){
+  patchItAdd(orderId: number, name: string, price: number){
     const newItem = new ItemClass(localStorage.getItem('username'), name, 1, price)
-    this.orderService.patchAdd(menuId, newItem).subscribe(item => {
+    this.orderService.patchAdd(orderId, newItem).subscribe(item => {
        this.items.push(item);
        this.getOrder();
     });
