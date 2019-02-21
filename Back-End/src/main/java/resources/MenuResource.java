@@ -83,9 +83,11 @@ public class MenuResource {
 
    @PATCH
    @Path("/update/{id}")
-   public void updateName(
+   public Menu updateName(
        @PathParam("id") final int id, final String menuName){
         this.menuRepository.get(id).setName(menuName);
+
+        return this.menuRepository.get(id);
 
        }
    

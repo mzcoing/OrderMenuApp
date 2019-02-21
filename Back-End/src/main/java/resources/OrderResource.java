@@ -81,9 +81,11 @@ public class OrderResource {
    }
    @PATCH
    @Path("/update/{id}")
-   public void updateName(
+   public Order updateName(
        @PathParam("id") final int id, final String orderName){
         this.orderRepository.get(id).setName(orderName);
 
+        return this.orderRepository.get(id);
+        
        }
 }
