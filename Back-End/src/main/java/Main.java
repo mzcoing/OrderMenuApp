@@ -22,19 +22,6 @@ public class Main extends Application<Config> {
         
         
     }
-    // public void run(Configuration conf, Environment environment)  {
-    //     // Enable CORS headers
-    //     final FilterRegistration.Dynamic cors =
-    //         environment.servlets().addFilter("CORS", CrossOriginFilter.class);
-    
-    //     // Configure CORS parameters
-    //     cors.setInitParameter("allowedOrigins", "*");
-    //     cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
-    //     cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,PUSH,PATCH,POST,DELETE,HEAD");
-    
-    //     // Add URL mapping
-    //     cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
-    // }
     @Override
     public void run(final Config configuration, final Environment environment) 
     
@@ -57,18 +44,6 @@ public class Main extends Application<Config> {
 
         environment.jersey().register(menuResource);
         environment.jersey().register(orderResource);
-
-        // Enable CORS headers
-        final FilterRegistration.Dynamic cors =
-            environment.servlets().addFilter("CORS", CrossOriginFilter.class);
-    
-        // Configure CORS parameters
-        cors.setInitParameter("allowedOrigins", "http://localhost:4200, http://localhost:8080, http://localhost:8080/menu, http://localhost:8080/order");
-        cors.setInitParameter("allowedHeaders", "Overwrite, Destination, Content-Type, Depth, User-Agent, Translate, Range, Content-Range, Timeout, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Location, Lock-Token, If,Accept,Origin");
-        cors.setInitParameter("allowedMethods", "ACL, CANCELUPLOAD, CHECKIN, CHECKOUT, COPY, DELETE, GET, HEAD, LOCK, MKCALENDAR, MKCOL, MOVE, OPTIONS, POST, PROPFIND, PROPPATCH, PUT, REPORT, SEARCH, UNCHECKOUT, PATCH, UNLOCK, UPDATE, VERSION-CONTROL");
-    
-        // Add URL mapping
-        cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
     } 
       
     private void enableCorsHeaders(Environment env) {
