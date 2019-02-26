@@ -4,10 +4,13 @@ import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
 
 import org.eclipse.jetty.servlets.CrossOriginFilter;
+// import org.skife.jdbi.v2.DBI;
 
 import io.dropwizard.Application;
+import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.servlets.CacheBustingFilter;
 import io.dropwizard.setup.Environment;
+// import repository.DBConnector;
 import repository.MenuRepository;
 import repository.OrderRepository;
 import resources.MenuResource;
@@ -22,10 +25,13 @@ public class Main extends Application<Config> {
         
         
     }
+    
 
 
     @Override
     public void run(final Config configuration, final Environment environment) 
+
+   
     
     
         throws Exception {
@@ -37,6 +43,11 @@ public class Main extends Application<Config> {
         final OrderRepository orderRepository = new OrderRepository();
 
         final OrderResource orderResource = new OrderResource(orderRepository);
+        final DBIFactory factory = new DBIFactory();
+        // final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "derby");
+
+        // final DBConnector dbConnector = new DBConnector();
+
             //Force browsers to reload all js and html files for every request as angular gets screwed up
         environment.servlets()
         .addFilter("CacheBustingFilter", new CacheBustingFilter())
@@ -47,6 +58,7 @@ public class Main extends Application<Config> {
         environment.jersey().register(menuResource);
         environment.jersey().register(orderResource);
     } 
+
       
     private void enableCorsHeaders(Environment env) {
         final FilterRegistration.Dynamic cors = env.servlets().addFilter("CORS", CrossOriginFilter.class);
@@ -59,6 +71,8 @@ public class Main extends Application<Config> {
         // Add URL mapping
         cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
     }
+
+   
 
     
 }

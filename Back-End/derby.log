@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Feb 26 13:33:46 CET 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0169-29cb-f4ef-0000061c9478 
+on database directory /home/coing/FoodOrderingApp/Back-End/FOADB with class loader sun.misc.Launcher$AppClassLoader@1b6d3586 
+Loaded from file:/home/coing/FoodOrderingApp/Back-End/build/libs/food-ordering-1.0-SNAPSHOT-all.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_191-8u191-b12-2ubuntu0.18.04.1-b12
+user.dir=/home/coing/FoodOrderingApp/Back-End
+os.name=Linux
+os.arch=amd64
+os.version=4.15.0-45-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

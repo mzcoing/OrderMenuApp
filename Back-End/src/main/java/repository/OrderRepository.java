@@ -1,6 +1,5 @@
 package repository;
 import models.Item;
-// import models.Menu;
 
 import models.Order;
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ public class OrderRepository {
     ArrayList<Item> items = new ArrayList<>();
     public int counter = 0;
     public int menuid = 0;
-    // private Integer menuid;
 
 
     public OrderRepository() {
