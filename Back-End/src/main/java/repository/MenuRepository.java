@@ -2,6 +2,7 @@ package repository;
 
 import models.Item;
 import models.Menu;
+import repository.DBConnector;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +11,7 @@ import java.util.Map;
 
 public class MenuRepository {
 
-
+    DBConnector db = new DBConnector();
     public Map<Integer, Menu> menus;
     public int counter = 0;
     ArrayList<Item> items = new ArrayList<>();
@@ -22,6 +23,7 @@ public class MenuRepository {
             this.items.add(item);
         }
 
+        
         addNewMenu(new Menu(0, "First Menu", this.items));
         addNewMenu(new Menu(1, "Second Menu", this.items));
         addNewMenu(new Menu(2, "Third Menu", this.items));

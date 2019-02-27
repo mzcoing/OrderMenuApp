@@ -7,9 +7,10 @@ import org.eclipse.jetty.servlets.CrossOriginFilter;
 // import org.skife.jdbi.v2.DBI;
 
 import io.dropwizard.Application;
-import io.dropwizard.jdbi.DBIFactory;
+// import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.servlets.CacheBustingFilter;
 import io.dropwizard.setup.Environment;
+import repository.DBConnector;
 // import repository.DBConnector;
 import repository.MenuRepository;
 import repository.OrderRepository;
@@ -35,6 +36,8 @@ public class Main extends Application<Config> {
     
     
         throws Exception {
+
+        final DBConnector dbConnector = new DBConnector();
             
         final MenuRepository menuRepository = new MenuRepository();
 
@@ -43,7 +46,7 @@ public class Main extends Application<Config> {
         final OrderRepository orderRepository = new OrderRepository();
 
         final OrderResource orderResource = new OrderResource(orderRepository);
-        final DBIFactory factory = new DBIFactory();
+        // final DBIFactory factory = new DBIFactory();
         // final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "derby");
 
         // final DBConnector dbConnector = new DBConnector();
@@ -57,6 +60,8 @@ public class Main extends Application<Config> {
 
         environment.jersey().register(menuResource);
         environment.jersey().register(orderResource);
+        environment.jersey().register(dbConnector);
+
     } 
 
       

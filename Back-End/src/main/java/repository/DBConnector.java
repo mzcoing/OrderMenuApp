@@ -20,7 +20,60 @@ public class DBConnector   {
             Connection c = DriverManager.getConnection(url+";create=true");
             return c;
             }
+
+    public void createTable() throws SQLException {
+        String createString = "create table FOADB.Items" + "(person varchar(50), " + "name varchar(50), " + "quantity int, " + "price int, " + "PRIMARY KEY (name))";
+        Connection c = DriverManager.getConnection("jdbc:derby:FOADB;create=true");
+        Statement stmt = null;
+        try {
+        
+        stmt = c.createStatement();
+        stmt.executeUpdate(createString);
+        
+        } catch (SQLException e){
+
+        } finally {
+            if (stmt !=null) {stmt.close();}
+        }
     }
+
+
+    public void populateTable() throws SQLException {
+        Connection c = DriverManager.getConnection("jdbc:derby:FOADB;create=true");
+        String updateString = "insert into FOADB.Items values('Milos', 'Hrana', 2, 150)";
+        Statement stmt = null;
+        try {
+            stmt = c.createStatement();
+            stmt.executeUpdate(updateString);
+            
+        } catch (SQLException e){}
+        finally {
+            if (stmt != null) {stmt.close();}
+        }
+    }
+
+    public static Connection shutdownDB () throws SQLException {
+    Connection c = DriverManager.getConnection("jdbc:derby:FOADB;shutdown=true");
+    return c;
+    }
+    
+}
+
+
+    // public static void main(String[] args)
+
+    // throws SQLException, ClassNotFoundException {
+    //         String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+    //         Class.forName(driver);
+    //          String url = "jdbc:derby:FOADB";
+    //         Connection c = DriverManager.getConnection(url+";create=true");
+    //         String query = "create table items(person varchar(50), name varchar(50), quantity int, price int";
+    //         Statement st = c.createStatement();
+    //         st.executeQuery(query);
+    //         st.close();
+    //         c.close();
+            
+    //         }
 
 // @SqlUpdate("create table Menu (id int primary key, name varchar(100), items )")
     // void createSomethingTable();

@@ -14,6 +14,8 @@ public class Config extends Configuration {
     @JsonProperty("database")
     public void setDataSourceFactory(DataSourceFactory factory) {
         this.database = factory;
+        this.database.setDriverClass("org.apache.derby.jdbc.EmbeddedDriver");
+        this.database.setUrl("jdbc:derby:FOADB;create=true");
     }
 
     @JsonProperty("database")
