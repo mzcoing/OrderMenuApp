@@ -1,16 +1,20 @@
 package resources;
+import com.mongodb.client.MongoCollection;
 import models.*;
 
 import com.codahale.metrics.annotation.Timed;
 
 import io.dropwizard.jersey.PATCH;
 import models.Menu;
+import org.bson.Document;
 import repository.MenuRepository;
 
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.Collection;
+import java.util.List;
 import java.util.ListIterator;
 
 @Path("/menu")
@@ -20,15 +24,29 @@ public class MenuResource {
 
     private MenuRepository menuRepository;
 
-    public MenuResource(final MenuRepository menuRepository) {
-        this.menuRepository = menuRepository;
-    }
+  private MongoCollection<Document> collection;
 
-    @GET
-    @Timed
-    public Collection<Menu> getAll() {
-        return this.menuRepository.getAllMenus();
-    }
+//    public MenuResource(final MenuRepository menuRepository) {
+//        this.menuRepository = menuRepository;
+//    }
+
+  public MenuResource(MongoCollection<Document> collection, MenuRepository menuRepository) {
+    this.collection = collection;
+    this.menuRepository = menuRepository;
+  }
+
+//    @GET
+//    @Timed
+//    public Collection<Menu> getAll() {
+//        return this.menuRepository.getAllMenus();
+//    }
+
+  @GET
+  @Timed
+  public Response getAll() {
+    List<Document> documents = menuRepository.find(collection);
+    return Response.ok(documents).build();
+  }
 
     @GET
     @Path("/{id}")
@@ -64,7 +82,7 @@ public class MenuResource {
 
          if (itemName.equals(item.getName())) {
             iterator.remove();
-            
+
             break;
          }
       }
@@ -74,7 +92,7 @@ public class MenuResource {
         @PATCH
         @Path("/add/{menuId}")
         public java.util.List<Item> addMenuItem(
-        @PathParam("menuId") final int menuId, final Item item) { 
+        @PathParam("menuId") final int menuId, final Item item) {
         final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
         items.add(item);
 
@@ -90,5 +108,5 @@ public class MenuResource {
         return this.menuRepository.get(id);
 
        }
-   
+
 }
