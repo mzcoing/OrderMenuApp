@@ -7,13 +7,13 @@ import java.util.List;
 
 public class Menu {
 
-    private Integer id;
+    private double id;
     private String name;
     private List<Item> items;
 
     public Menu() { }
 
-    public Menu(int id, String name, List<Item> items) {
+    public Menu(double id, String name, List<Item> items) {
         this.id = id;
         this.name = name;
         this.items = items;
@@ -31,7 +31,7 @@ public class Menu {
     }
 
     @JsonProperty
-    public Integer getId() {
+    public double getId() {
 
         return this.id;
     }
@@ -42,7 +42,7 @@ public class Menu {
     }
 
     @JsonProperty
-    public void setId(final int id) {
+    public void setId(final double id) {
         this.id = id;
     }
 

@@ -30,7 +30,12 @@ export class MenuDetailsComponent implements OnInit {
   getMenu(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.menuService.getMenu(id)
-    .subscribe(menu => this.menu = menu);
+    .subscribe(menu => {
+      this.menu = menu;
+      console.log(menu);
+    }
+
+      );
   }
 
   goBack(): void {

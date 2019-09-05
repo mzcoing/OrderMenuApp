@@ -1,9 +1,11 @@
 package repository;
 
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import models.Item;
 import models.Menu;
 import org.bson.Document;
+import com.mongodb.client.FindIterable;
 import repository.DBConnector;
 
 import java.util.*;
@@ -11,14 +13,14 @@ import java.util.*;
 public class MenuRepository {
 
     DBConnector db = new DBConnector();
-    public Map<Integer, Menu> menus;
+    public Map<Double, Menu> menus;
     public int counter = 0;
     ArrayList<Item> items = new ArrayList<>();
 
     public MenuRepository() {
         this.menus = new HashMap<>();
-        for (int i=0; i<2; i++) {
-            Item item = new Item("Item " + i, i+200);
+        for (double i=0; i<2; i++) {
+            Item item = new Item("Item " + i, i+200.00);
             this.items.add(item);
         }
 
@@ -44,6 +46,32 @@ public class MenuRepository {
     public Menu get(final int id) {
         return this.menus.get(id);
     }
+
+  public List<Document> findById(MongoCollection<Document> collection, String key, int value) {
+
+    return collection.find(Filters.eq(key, value)).into(new ArrayList<>());
+  }
+
+  public void insertOne(MongoCollection<Document> collection, Document document) {
+      System.out.println(document.get("id"));
+    collection.insertOne(document);
+  }
+
+  public void deleteOne(MongoCollection<Document> collection, String key, int value) {
+    collection.deleteOne(Filters.eq(key, value));
+  }
+
+  public void updateMenu(MongoCollection<Document> collection, String key1, String key2, Item item) {
+
+    collection.updateOne(new Document(key1, 3),
+      new Document("$set", new Document(key2, item.getName() + "," + item.getPerson() + ", " +
+        item.getQuantity() + "," + item.getPrice())));
+  }
+
+//  public Menu getOne(MongoCollection<Document> collection, int id) {
+//
+//    return collection.find(Filters.eq("id", id)).into(new Menu());
+//  }
 
   public List<Document> find(MongoCollection<Document> collection) {
     return collection.find().into(new ArrayList<>());

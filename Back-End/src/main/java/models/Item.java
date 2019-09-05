@@ -5,12 +5,12 @@ public class Item {
 
     private String person;
     private String name;
-    private Integer quantity;
-    private Integer price;
-    
+    private double quantity;
+    private double price;
+
     public Item(){}
 
-     public Item(String name, int price) {
+     public Item(String name, double price) {
 
         this.person = "";
         this.quantity = 0;
@@ -18,7 +18,7 @@ public class Item {
         this.price = price;
       }
 
-    public Item(String person, String name, int quantity, int price) {
+    public Item(String person, String name, double quantity, double price) {
 
         this.name = name;
         this.person = person;
@@ -38,12 +38,12 @@ public class Item {
     }
 
     @JsonProperty
-    public Integer getQuantity(){
+    public double getQuantity(){
         return this.quantity;
     }
 
     @JsonProperty
-    public Integer getPrice(){
+    public double getPrice(){
         return this.price;
     }
 

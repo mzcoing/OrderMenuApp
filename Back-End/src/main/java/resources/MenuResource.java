@@ -1,4 +1,7 @@
 package resources;
+
+import com.google.gson.Gson;
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import models.*;
 
@@ -8,21 +11,21 @@ import io.dropwizard.jersey.PATCH;
 import models.Menu;
 import org.bson.Document;
 import repository.MenuRepository;
+import com.google.*;
 
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Collection;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 @Path("/menu")
 @Produces(MediaType.APPLICATION_JSON)
 
 public class MenuResource {
 
-    private MenuRepository menuRepository;
+  private MenuRepository menuRepository;
 
   private MongoCollection<Document> collection;
 
@@ -48,65 +51,122 @@ public class MenuResource {
     return Response.ok(documents).build();
   }
 
-    @GET
-    @Path("/{id}")
-    @Timed
-    public Menu get(@PathParam("id") final int id) {
+  @GET
+  @Path("/{id}")
+  @Timed
+  public Menu get(@PathParam("id") final int id) {
 
+    final List<Document> documents = this.menuRepository.findById(collection, "id", id);
+    final Document document = documents.get(0);
 
-        return this.menuRepository.get(id);
+    final List<Document> itemsD = (List<Document>) document.get("items");
+    final List<Item> itemModelList = new LinkedList<>();
+    try {
+      itemsD.forEach(x -> {
+
+        itemModelList.add(new Item(
+          (String) x.get("person"),
+          (String) x.get("name"),
+          (double) x.get("quantity"),
+          (double) x.get("price")
+        ));
+      });
+    } catch (NullPointerException e) {
+      itemModelList.add(new Item());
     }
 
-    @POST
-    @Timed
-    public Collection<Menu> post(final Menu menu) {
-        return this.menuRepository.addNewMenu(menu);
-    }
+    return new Menu((double) document.get("id"), (String) document.get("name"), itemModelList);
 
-    @DELETE
-    @Path("/{id}")
-    @Timed
-    public Collection<Menu> delete(@PathParam("id") final int id) {
-        return this.menuRepository.removeMenu(id);
-    }
+//      System.out.println(documents.get(0).get("id"));
+//    return Response.ok(documents).build();
+//        return this.menuRepository.get(id);
+  }
 
-    @PATCH
-    @Path("/remove/{menuId}/{itemName}")
-    public java.util.List<Item> removeMenuItem(
-            @PathParam("menuId") final int menuId,
-            @PathParam("itemName") final String itemName) {
-      final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
+  @POST
+  @Timed
+  public Response post(final Menu menu) {
+    Gson gson = new Gson();
+      menu.setId((double) this.menuRepository.find(collection).size() + 1.0);
+    String json = gson.toJson(menu);
+    this.menuRepository.insertOne(collection, new Document(BasicDBObject.parse(json)));
+    Map<String, String> response = new HashMap<>();
+    response.put("message", "Menu added successfully");
+    return Response.ok(response).build();
 
-      for (final ListIterator<Item> iterator = items.listIterator(); iterator.hasNext();) {
-         final Item item = iterator.next();
+//    return this.menuRepository.addNewMenu(menu);
+  }
 
-         if (itemName.equals(item.getName())) {
-            iterator.remove();
+  @DELETE
+  @Timed
+  @Path("/{id}")
+  public Response deleteEmployee(@PathParam("id") final int id) {
+    this.menuRepository.deleteOne(collection, "id", id);
+    Map<String, String> response = new HashMap<>();
+    response.put("message", "Employee with Name: " + id + " deleted successfully");
+    return Response.ok(response).build();
+  }
 
-            break;
-         }
-      }
-      return this.menuRepository.get(menuId).getItems();
-   }
+  @PATCH
+  @Timed
+  @Path("/add/{menuId}")
+  public Response editEmployee(@PathParam("menuId") final String id, final Item item) {
+    this.menuRepository.updateMenu(collection, id, "items", item);
+    Map<String, String> response = new HashMap<>();
+    response.put("message", "Employee with Name: " + item.getName() + " updated successfully");
+    return Response.ok(response).build();
+  }
 
-        @PATCH
-        @Path("/add/{menuId}")
-        public java.util.List<Item> addMenuItem(
-        @PathParam("menuId") final int menuId, final Item item) {
-        final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
-        items.add(item);
+//  @DELETE
+//  @Path("/{id}")
+//  @Timed
+//  public Collection<Menu> delete(@PathParam("id") final int id) {
+//    return this.menuRepository.removeMenu(id);
+//  }
 
-        return this.menuRepository.get(menuId).getItems();
-        }
+//  @DELETE
+//  @Path("/{id}")
+//  @Timed
+//  public Collection<Menu> delete(@PathParam("id") final int id) {
+//    return this.menuRepository.removeMenu(id);
+//  }
 
-   @PATCH
-   @Path("/update/{id}")
-   public Menu updateName(
-       @PathParam("id") final int id, final String menuName){
-        this.menuRepository.get(id).setName(menuName);
-
-        return this.menuRepository.get(id);
-
-       }
+//    @PATCH
+//    @Path("/remove/{menuId}/{itemName}")
+//    public java.util.List<Item> removeMenuItem(
+//            @PathParam("menuId") final int menuId,
+//            @PathParam("itemName") final String itemName) {
+//      final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
+//
+//      for (final ListIterator<Item> iterator = items.listIterator(); iterator.hasNext();) {
+//         final Item item = iterator.next();
+//
+//         if (itemName.equals(item.getName())) {
+//            iterator.remove();
+//
+//            break;
+//         }
+//      }
+//      return this.menuRepository.get(menuId).getItems();
+//   }
+//
+//        @PATCH
+//        @Path("/add/{menuId}")
+//        public java.util.List<Item> addMenuItem(
+//        @PathParam("menuId") final int menuId, final Item item) {
+//        final java.util.List<Item> items = this.menuRepository.get(menuId).getItems();
+//        items.add(item);
+//
+//        return this.menuRepository.get(menuId).getItems();
+//        }
+//
+//   @PATCH
+//   @Path("/update/{id}")
+//   public Menu updateName(
+//       @PathParam("id") final int id, final String menuName){
+//        this.menuRepository.get(id).setName(menuName);
+//
+//        return this.menuRepository.get(id);
+//
+//       }
 
 }
