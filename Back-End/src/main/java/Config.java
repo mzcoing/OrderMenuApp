@@ -23,6 +23,10 @@ public class Config extends Configuration {
   @NotEmpty
   public String collectionName;
 
+  @JsonProperty
+  @NotEmpty
+  public String orderCollection;
+
   public String getMongoHost() {
     return mongoHost;
   }
@@ -55,5 +59,10 @@ public class Config extends Configuration {
     this.collectionName = collectionName;
   }
 
+  public String getOrderCollectionName() { return orderCollection; }
+
+  public void setOrderCollection(String orderCollection) {
+    this.orderCollection = orderCollection;
+  }
 }
 

@@ -52,6 +52,7 @@ mongoHost: localhost
 mongoPort: 27017
 mongoDB: foaDB
 collectionName: menus
+orderCollection: orders
 
 # server:
 # #  softNofileLimit: 1000

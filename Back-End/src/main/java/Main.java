@@ -16,8 +16,6 @@ import io.dropwizard.Application;
 // import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.servlets.CacheBustingFilter;
 import io.dropwizard.setup.Environment;
-import repository.DBConnector;
-// import repository.DBConnector;
 import repository.MenuRepository;
 import repository.OrderRepository;
 import resources.MenuResource;
@@ -38,7 +36,6 @@ public class Main extends Application<Config> {
   @Override
   public void run(final Config configuration, final Environment env) {
 
-//      final DBConnector dbConnector = new DBConnector();
 
     final MongoClient mongoClient = new MongoClient(configuration.getMongoHost(), configuration.getMongoPort());
 
@@ -49,13 +46,15 @@ public class Main extends Application<Config> {
 
     MongoCollection<Document> collection = db.getCollection(configuration.getCollectionName());
 
+    MongoCollection<Document> orderCollection = db.getCollection(configuration.getOrderCollectionName());
+
     final MenuRepository menuRepository = new MenuRepository();
 
     final MenuResource menuResource = new MenuResource(collection, menuRepository);
 
     final OrderRepository orderRepository = new OrderRepository();
 
-    final OrderResource orderResource = new OrderResource(orderRepository);
+    final OrderResource orderResource = new OrderResource(orderCollection, orderRepository);
 
     //Force browsers to reload all js and html files for every request as angular gets screwed up
     env.servlets()

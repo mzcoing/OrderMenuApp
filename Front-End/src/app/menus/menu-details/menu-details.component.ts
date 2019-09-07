@@ -32,7 +32,6 @@ export class MenuDetailsComponent implements OnInit {
     this.menuService.getMenu(id)
     .subscribe(menu => {
       this.menu = menu;
-      console.log(menu);
     }
 
       );

@@ -1,66 +1,70 @@
 package repository;
+import com.google.gson.Gson;
+import com.mongodb.BasicDBObject;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import models.Item;
 
 import models.Order;
-import java.util.ArrayList;
+import org.bson.Document;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class OrderRepository {
 
-    private Map<Integer, Order> orders;
-    ArrayList<Item> items = new ArrayList<>();
-    public int counter = 0;
-    public int menuid = 0;
+  public List<Document> getAllOrders(MongoCollection<Document> collection) {
+    return collection.find().into(new ArrayList<>());
+  }
 
+  public List<Document> findById(MongoCollection<Document> collection, String key, int value) {
 
-    public OrderRepository() {
-        this.orders = new HashMap<>();
-        for (int i=0; i<2; i++) {
-            Item item = new Item("Person " + i, "Food Number " + i, i, i+200);
+    return collection.find(Filters.eq(key, value)).into(new ArrayList<>());
+  }
 
-            this.items.add(item);
-        }
-        addNewOrder (new Order (0, "First Order", 0, this.items));
-        addNewOrder (new Order (1, "Second Order", 1, this.items));
-        addNewOrder (new Order (2, "Third Order", 2, this.items));
-        addNewOrder (new Order (3, "Fourth Order", 3, this.items));
-        addNewOrder (new Order (4, "Fifth Order", 4, this.items));
-        addNewOrder (new Order (5, "Sixth Order", 5, this.items));
+  public void insertOne(MongoCollection<Document> collection, Document document) {
+    collection.insertOne(document);
+  }
+
+  public void deleteOne(MongoCollection<Document> collection, String key, int value) {
+    collection.deleteOne(Filters.eq(key, value));
+  }
+
+  public void updateOrder(MongoCollection<Document> collection, int id, Item item) {
+    Gson gson = new Gson();
+    String json = gson.toJson(item);
+//    collection.updateOne(Filters.eq("id", id), new Document("$push", new Document("items", BasicDBObject.parse(json))));
+    List checkForValue = new ArrayList();
+    System.out.println(item.getName());
+    System.out.println(item.getPerson());
+    System.out.println(item.getPrice());
+    System.out.println(item.getQuantity());
+
+    collection.find(Filters.and(Filters.eq("id", id), Filters.eq("items.name", item.getName()), Filters.eq("items.person", item.getPerson()),
+      Filters.eq("items.price", item.getPrice())
+    )
+    ).into(checkForValue);
+//    System.out.println(checkForValue.get(0));
+    System.out.println(checkForValue.isEmpty());
+
+    if (checkForValue.isEmpty()) {
+      collection.updateOne(Filters.eq("id", id), new Document("$push", new Document("items", BasicDBObject.parse(json))));
+    } else {
+      collection.findOneAndUpdate(Filters.and(Filters.eq("id", id), Filters.eq("items.name", item.getName())), new Document("$set", new Document("items.quantity", 1.0)));
     }
+  }
 
-    private int getNewId() {
-        return counter++;
-    }
+  public void removeItem(MongoCollection<Document> collection, int id, String name) {
+    collection.updateOne(
+      Filters.eq("id", id),
+      new Document( "$pull", new Document("items", new Document("name", name)))
+    );
+  }
 
-    private int getNewMenuId(){
-        return menuid++;
-    }
-
-    public Collection<Order> getAllOrders() {
-        return this.orders.values();
-    }
-
-    public Order get(final int id) {
-        return this.orders.get(id);
-    }
-
-    public Collection<Order> addNewOrder(final Order order) {
-
-        order.setMenuId(this.getNewMenuId());
-        order.setItems(items);
-        order.setId(this.getNewId());
-        this.orders.put(order.getId(), order);
-
-        return this.orders.values();
-    }
-
-    public Collection<Order> removeOrder(final int id) {
-        this.orders.remove(id);
-
-        return this.orders.values();
-    }
+  public void renameOrder(MongoCollection<Document> collection, int id, String newName) {
+    collection.updateOne(
+      Filters.eq("id", id),
+      new Document("$set", new Document("name", newName))
+    );
+  }
 
 }
