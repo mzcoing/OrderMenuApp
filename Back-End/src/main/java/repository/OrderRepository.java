@@ -32,24 +32,17 @@ public class OrderRepository {
   public void updateOrder(MongoCollection<Document> collection, int id, Item item) {
     Gson gson = new Gson();
     String json = gson.toJson(item);
-//    collection.updateOne(Filters.eq("id", id), new Document("$push", new Document("items", BasicDBObject.parse(json))));
     List checkForValue = new ArrayList();
-    System.out.println(item.getName());
-    System.out.println(item.getPerson());
-    System.out.println(item.getPrice());
-    System.out.println(item.getQuantity());
 
     collection.find(Filters.and(Filters.eq("id", id), Filters.eq("items.name", item.getName()), Filters.eq("items.person", item.getPerson()),
       Filters.eq("items.price", item.getPrice())
     )
     ).into(checkForValue);
-//    System.out.println(checkForValue.get(0));
-    System.out.println(checkForValue.isEmpty());
 
     if (checkForValue.isEmpty()) {
       collection.updateOne(Filters.eq("id", id), new Document("$push", new Document("items", BasicDBObject.parse(json))));
     } else {
-      collection.findOneAndUpdate(Filters.and(Filters.eq("id", id), Filters.eq("items.name", item.getName())), new Document("$set", new Document("items.quantity", 1.0)));
+      collection.findOneAndUpdate(Filters.and(Filters.eq("id", id), Filters.eq("items.name", item.getName())), new Document("$inc", new Document("items.$.quantity", 1.0)));
     }
   }
 
